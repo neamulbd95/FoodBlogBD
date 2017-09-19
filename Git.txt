@@ -1,0 +1,10 @@
+git init
+
+git status
+
+git add .
+
+git commit -m "j kono kotha"
+
+git push origin master
+
