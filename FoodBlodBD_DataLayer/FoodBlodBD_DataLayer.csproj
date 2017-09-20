@@ -1,53 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProjectGuid>a4e120c6-e142-4fad-a662-7b0fc152281f</ProjectGuid>
-		<OutputType>Library</OutputType>
-		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>FoodBlodBD_DataLayer</RootNamespace>
-		<AssemblyName>FoodBlodBD_DataLayer</AssemblyName>
-		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-		<FileAlignment>512</FileAlignment>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DebugType>pdbonly</DebugType>
- 		<Optimize>true</Optimize>
-		<OutputPath>bin\Release\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="System"/>
-		
-		<Reference Include="System.Core"/>
-		<Reference Include="System.Xml.Linq"/>
-		<Reference Include="System.Data.DataSetExtensions"/>
-		
-		
-		<Reference Include="Microsoft.CSharp"/>
- 		
-		<Reference Include="System.Data"/>
-		<Reference Include="System.Xml"/>
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Include="Class1.cs" />
-
-		<Compile Include="Properties\AssemblyInfo.cs" />
-	</ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{963D18F3-5862-4F27-828A-CC8B0C67171B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodBlodBD_DataLayer</RootNamespace>
+    <AssemblyName>FoodBlodBD_DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess_Center.cs" />
+    <Compile Include="FoodBlogBD_databaseContext.cs" />
+    <Compile Include="iItem_Category_DataAccess.cs" />
+    <Compile Include="iItem_Section_DataAccess.cs" />
+    <Compile Include="irestaurantItems_DataAccess.cs" />
+    <Compile Include="irestaurant_Branch_DataAccess.cs" />
+    <Compile Include="iRestaurant_FoodCategory_DataAccess.cs" />
+    <Compile Include="iRestaurant_info_DataAccess.cs" />
+    <Compile Include="iRestaurant_Post_DataAccess.cs" />
+    <Compile Include="iRestaurant_Rating_DataAccess.cs" />
+    <Compile Include="Item_Category_DataAccess.cs" />
+    <Compile Include="Item_Section_DataAccess.cs" />
+    <Compile Include="iUser_Authentication_DataAccess.cs" />
+    <Compile Include="iUser_Comment_DataAccess.cs" />
+    <Compile Include="iUser_info_DataAccess.cs" />
+    <Compile Include="iUser_like_DataAccess.cs" />
+    <Compile Include="iUser_Message_DataAccess.cs" />
+    <Compile Include="iUser_Post_Approval_DataAccess.cs" />
+    <Compile Include="iUser_Post_DataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantItem_DataAccess.cs" />
+    <Compile Include="Restaurant_Branch_DataAccess.cs" />
+    <Compile Include="Restaurant_FoodCategory_DataAccess.cs" />
+    <Compile Include="Restaurant_info_DataAccess.cs" />
+    <Compile Include="Restaurant_Post_DataAccess.cs" />
+    <Compile Include="Restaurant_Rating_DataAccess.cs" />
+    <Compile Include="User_Authentication_DataAccess.cs" />
+    <Compile Include="User_Comment_DataAccess.cs" />
+    <Compile Include="User_info_DataAccess.cs" />
+    <Compile Include="User_like_DataAccess.cs" />
+    <Compile Include="User_Message_DataAccess.cs" />
+    <Compile Include="User_Post_Approval_DataAccess.cs" />
+    <Compile Include="User_Post_DataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodBlogBD_Entity\FoodBlogBD_Entity.csproj">
+      <Project>{d4d25f80-4318-4b0c-93e6-ceb9efa4cc2d}</Project>
+      <Name>FoodBlogBD_Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -55,5 +98,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>

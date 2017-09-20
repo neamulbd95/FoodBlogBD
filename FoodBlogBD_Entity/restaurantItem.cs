@@ -13,14 +13,23 @@ namespace FoodBlogBD_Entity
         //restaurant
         [Key]
         public int Id { get; set; }
+        [Required]
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Only Characters are allowed.")]
         public string itemName { get; set; }
-        public int restaurantID { get; set; }
-        public string Category { get; set; }
+        public int restaurantID { get; set; }        
         public int itemCategory { get; set; }
+        public int itemSection { get; set; }
+        [Required]
+        public int itemPrice { get; set; }
+        [Required]
+        public string otherInfo { get; set; }
+
 
         [ForeignKey("restaurantID")]
         public virtual List<Restaurant_info> Restaurant_info { get; set; }
         [ForeignKey("itemCategory")]
-        public virtual List<Item_Category> Item_Category { get; set; }
+        public virtual Item_Category Item_Category { get; set; }
+        [ForeignKey("itemSection")]
+        public virtual Item_Section Item_Section { get; set; }
     }
 }

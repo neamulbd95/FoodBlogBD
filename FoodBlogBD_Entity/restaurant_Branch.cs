@@ -12,8 +12,11 @@ namespace FoodBlogBD_Entity
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public string branchName { get; set; }
         public int restaurantID { get; set; }
+        [Required]
+        public string branchArea { get; set; }
 
         [ForeignKey("restaurantID")]
         public virtual List<Restaurant_info> Restaurant_info { get; set; }

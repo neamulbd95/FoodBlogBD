@@ -1,0 +1,10 @@
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\FoodBlogBD_Entity.dll.config
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\FoodBlogBD_Entity.dll
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\FoodBlogBD_Entity.pdb
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\EntityFramework.dll
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\EntityFramework.SqlServer.dll
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\EntityFramework.xml
+G:\asp\SP2_Project\FoodBlogBD_Entity\bin\Debug\EntityFramework.SqlServer.xml
+G:\asp\SP2_Project\FoodBlogBD_Entity\obj\Debug\FoodBlogBD_Entity.csprojResolveAssemblyReference.cache
+G:\asp\SP2_Project\FoodBlogBD_Entity\obj\Debug\FoodBlogBD_Entity.dll
+G:\asp\SP2_Project\FoodBlogBD_Entity\obj\Debug\FoodBlogBD_Entity.pdb

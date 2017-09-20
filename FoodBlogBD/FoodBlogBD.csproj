@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -141,6 +147,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodBlodBD_ServiceLayer\FoodBlodBD_ServiceLayer.csproj">
+      <Project>{5d98709b-7b23-424c-98cf-e3eee3b7b094}</Project>
+      <Name>FoodBlodBD_ServiceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodBlogBD_Entity\FoodBlogBD_Entity.csproj">
+      <Project>{d4d25f80-4318-4b0c-93e6-ceb9efa4cc2d}</Project>
+      <Name>FoodBlogBD_Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

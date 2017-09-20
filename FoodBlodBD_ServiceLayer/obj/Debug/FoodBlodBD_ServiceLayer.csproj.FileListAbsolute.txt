@@ -1,0 +1,14 @@
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlodBD_ServiceLayer.dll.config
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlodBD_ServiceLayer.dll
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlodBD_ServiceLayer.pdb
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\EntityFramework.dll
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\EntityFramework.SqlServer.dll
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlodBD_DataLayer.dll
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlogBD_Entity.dll
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlodBD_DataLayer.pdb
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\FoodBlogBD_Entity.pdb
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\EntityFramework.xml
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\bin\Debug\EntityFramework.SqlServer.xml
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\obj\Debug\FoodBlodBD_ServiceLayer.csprojResolveAssemblyReference.cache
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\obj\Debug\FoodBlodBD_ServiceLayer.dll
+G:\asp\SP2_Project\FoodBlodBD_ServiceLayer\obj\Debug\FoodBlodBD_ServiceLayer.pdb
