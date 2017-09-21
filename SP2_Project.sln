@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodBlodBD_DataLayer", "Foo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodBlogBD_Entity", "FoodBlogBD_Entity\FoodBlogBD_Entity.csproj", "{D4D25F80-4318-4B0C-93E6-CEB9EFA4CC2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoogBlogBD", "FoogBlogBD\FoogBlogBD.csproj", "{B36C4AF0-E226-40C5-8193-FEDEF39A22D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodBlogBD_ServiceLayer", "FoodBlogBD_ServiceLayer\FoodBlogBD_ServiceLayer.csproj", "{233D2D58-E57C-4A36-BA8F-EF5FDBA4A2D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D4D25F80-4318-4B0C-93E6-CEB9EFA4CC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4D25F80-4318-4B0C-93E6-CEB9EFA4CC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4D25F80-4318-4B0C-93E6-CEB9EFA4CC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36C4AF0-E226-40C5-8193-FEDEF39A22D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36C4AF0-E226-40C5-8193-FEDEF39A22D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36C4AF0-E226-40C5-8193-FEDEF39A22D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36C4AF0-E226-40C5-8193-FEDEF39A22D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233D2D58-E57C-4A36-BA8F-EF5FDBA4A2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233D2D58-E57C-4A36-BA8F-EF5FDBA4A2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233D2D58-E57C-4A36-BA8F-EF5FDBA4A2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233D2D58-E57C-4A36-BA8F-EF5FDBA4A2D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
