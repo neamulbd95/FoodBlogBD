@@ -23,6 +23,7 @@ namespace FoodBlogBD_Entity
         [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Enter A Valid Email.")] 
         public string email { get; set; }
         [Required]
+        public string Gender { get; set; }
         public DateTime DOB { get; set; }
         public string profilePicture { get; set; }
 

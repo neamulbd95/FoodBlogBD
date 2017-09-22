@@ -29,7 +29,7 @@ namespace FoodBlogBD_ServiceLayer
         {
             this.data.Update(user_authentication);
         }
-        public void Delete(int userId)
+        public void Delete(string userId)
         {
             this.data.Delete(userId);
         }

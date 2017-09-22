@@ -14,5 +14,8 @@ namespace FoodBlogBD_Entity
         public int Id { get; set; }
         public int postId { get; set; }
         public int checkApproval { get; set; } // 0 -> false & 1 -> true 
+
+        [ForeignKey("postId")]
+        public virtual User_Post User_Post { get; set; }
     }
 }

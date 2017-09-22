@@ -12,6 +12,6 @@ namespace FoodBlodBD_DataLayer
         User_Authentication GetSingle(string username, string password);
         void Insert(User_Authentication user_authentication);
         void Update(User_Authentication user_authentication);
-        void Delete(int userId);
+        void Delete(string userId);
     }
 }

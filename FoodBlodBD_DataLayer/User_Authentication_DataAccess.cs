@@ -18,7 +18,7 @@ namespace FoodBlodBD_DataLayer
 
         public User_Authentication GetSingle(string username, string password)
         {
-            return this.context.User_Authentication.SingleOrDefault(x => x.User_info.userName == username && x.passWord == password);
+            return this.context.User_Authentication.SingleOrDefault(x => x.userName == username && x.passWord == password);
         }
 
         public void Insert(User_Authentication user_authentication)
@@ -29,14 +29,14 @@ namespace FoodBlodBD_DataLayer
 
         public void Update(User_Authentication user_authentication)
         {
-            User_Authentication user = this.context.User_Authentication.SingleOrDefault(x => x.userID == user_authentication.Id);
+            User_Authentication user = this.context.User_Authentication.SingleOrDefault(x => x.userName == user_authentication.userName);
             user.passWord = user_authentication.passWord;
 
             this.context.SaveChanges();
         }
-        public void Delete(int userId)
+        public void Delete(string userId)
         {
-            User_Authentication user = this.context.User_Authentication.SingleOrDefault(x => x.userID == userId);
+            User_Authentication user = this.context.User_Authentication.SingleOrDefault(x => x.userName == userId);
             this.context.User_Authentication.Remove(user);
 
             this.context.SaveChanges();
