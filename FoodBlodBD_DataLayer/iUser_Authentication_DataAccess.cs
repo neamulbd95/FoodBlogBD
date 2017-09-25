@@ -9,6 +9,7 @@ namespace FoodBlodBD_DataLayer
 {
     public interface iUser_Authentication_DataAccess
     {
+        IEnumerable<User_Authentication> GetAllValues();
         User_Authentication GetSingle(string username, string password);
         void Insert(User_Authentication user_authentication);
         void Update(User_Authentication user_authentication);

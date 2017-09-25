@@ -25,11 +25,11 @@ namespace FoodBlogBD_Entity
         public string otherInfo { get; set; }
 
 
-        [ForeignKey("restaurantID")]
+        /*[ForeignKey("restaurantID")]
         public virtual List<Restaurant_info> Restaurant_info { get; set; }
         [ForeignKey("itemCategory")]
         public virtual Item_Category Item_Category { get; set; }
         [ForeignKey("itemSection")]
-        public virtual Item_Section Item_Section { get; set; }
+        public virtual Item_Section Item_Section { get; set; }*/
     }
 }

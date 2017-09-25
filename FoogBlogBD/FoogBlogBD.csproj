@@ -118,17 +118,74 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\foodCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AllEntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Contents\animate.min.css" />
+    <Content Include="Contents\bootstrap-theme.css" />
+    <Content Include="Contents\bootstrap.css" />
+    <Content Include="Contents\bootstrap.min.css" />
+    <Content Include="Contents\flexslider.css" />
+    <Content Include="Contents\font-awesome.css" />
+    <Content Include="Contents\font-awesome.min.css" />
+    <Content Include="Contents\hover-min.css" />
+    <Content Include="Contents\magnific-popup.css" />
+    <Content Include="Contents\nivo-lightbox.css" />
+    <Content Include="Contents\style.css" />
+    <Content Include="Fonts\flexslider-icon.svg" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\abhijitSir.jpg" />
+    <Content Include="images\abid.jpg" />
+    <Content Include="images\about-img.jpg" />
+    <Content Include="images\boomers.jpg" />
+    <Content Include="images\contact-bg.jpg" />
+    <Content Include="images\foo.png" />
+    <Content Include="images\gallery-img1.gif" />
+    <Content Include="images\gallery-img2.jpg" />
+    <Content Include="images\gallery-img3.jpg" />
+    <Content Include="images\gallery-img4.png" />
+    <Content Include="images\gallery-img5.jpg" />
+    <Content Include="images\gallery-img6.jpg" />
+    <Content Include="images\gloriaJeans.jpg" />
+    <Content Include="images\home-bg-slideshow1.jpg" />
+    <Content Include="images\home-bg-slideshow2.jpg" />
+    <Content Include="images\home-bg-slideshow3.jpg" />
+    <Content Include="images\logIN_avatar.png" />
+    <Content Include="images\neamul.jpg" />
+    <Content Include="images\preetom.jpg" />
+    <Content Include="images\slide-img1.jpg" />
+    <Content Include="images\slide-img2.jpg" />
+    <Content Include="images\slide-img3.jpg" />
+    <Content Include="images\sohel.jpg" />
+    <Content Include="images\video-bg.jpg" />
+    <Content Include="Scripts\AutoSearch.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\imagesloaded.min.js" />
+    <Content Include="Scripts\isotope.js" />
+    <Content Include="Scripts\isotope.min.js" />
+    <Content Include="Scripts\jquery.backstretch.min.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jquery.parallax.js" />
+    <Content Include="Scripts\jquery.sticky.js" />
+    <Content Include="Scripts\myScript.js" />
+    <Content Include="Scripts\nivo-lightbox.min.js" />
+    <Content Include="Scripts\smoothscroll.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -140,7 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -154,6 +210,27 @@
       <Project>{233d2d58-e57c-4a36-ba8f-ef5fdba4a2d2}</Project>
       <Name>FoodBlogBD_ServiceLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\flexslider-icon.eot" />
+    <Content Include="Fonts\flexslider-icon.ttf" />
+    <Content Include="Fonts\flexslider-icon.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\.picasa.ini" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />

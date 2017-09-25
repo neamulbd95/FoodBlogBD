@@ -17,7 +17,7 @@ namespace FoodBlogBD_Entity
         public int ratingGivenUser { get; set; }
         public int avarageRating { get; set; }
 
-        [ForeignKey("restaurantID")]
-        public virtual Restaurant_info Restaurant_info { get; set; }
+        //[ForeignKey("restaurantID")]
+        //public virtual List<Restaurant_info> Restaurant_info { get; set; }
     }
 }

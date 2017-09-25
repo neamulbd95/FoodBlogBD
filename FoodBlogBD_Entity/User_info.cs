@@ -13,7 +13,6 @@ namespace FoodBlogBD_Entity
         [Key]
         public int Id { get; set; }
         [Required]
-        [Index(IsUnique = true)]
         public string userName { get; set; }
         [Required]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Only Characters are allowed.")]
@@ -27,8 +26,8 @@ namespace FoodBlogBD_Entity
         public DateTime DOB { get; set; }
         public string profilePicture { get; set; }
 
-        public virtual User_Authentication user_Authentications { get; set; }
-        public virtual List<User_Post> User_Post { get; set; }
+        //public virtual User_Authentication user_Authentications { get; set; }
+        //public virtual List<User_Post> User_Post { get; set; }
         public virtual List<User_Comment> User_Comment { get; set; }
         public virtual List<User_like> User_like { get; set; }
 

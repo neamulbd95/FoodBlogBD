@@ -16,6 +16,10 @@ namespace FoodBlogBD_ServiceLayer
         {
             this.data = data;
         }
+        public IEnumerable<User_Authentication> GetAllValues()
+        {
+            return this.data.GetAllValues();
+        }
 
         public User_Authentication GetSingle(string username, string password)
         {

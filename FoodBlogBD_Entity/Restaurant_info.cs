@@ -14,7 +14,6 @@ namespace FoodBlogBD_Entity
         public int Id { get; set; }
         [Required]
         [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Only Characters are allowed.")]
-        [Index(IsUnique = true)]
         public string restaurantName { get; set; }
         [Required]
         public int restaurantLocation { get; set; }
@@ -31,7 +30,7 @@ namespace FoodBlogBD_Entity
         [Required]
         public string otherInfo { get; set; }
 
-        public virtual Restaurant_Rating Restaurant_Rating { get; set; }
+        //public virtual Restaurant_Rating Restaurant_Rating { get; set; }
         public virtual List<restaurantItem> restaurantItem { get; set; }
         public virtual List<restaurant_Branch> restaurant_Branch { get; set; }
 

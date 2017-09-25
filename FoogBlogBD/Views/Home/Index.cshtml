@@ -1,8 +1,486 @@
-﻿@{
+﻿@model IEnumerable<FoodBlogBD_Entity.Item_Category>
+
+@{
+    Layout = null;
+}
+
+
+@{
     Layout = null;
 }
 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>FoodBlogBD</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="Contents/bootstrap.min.css">
+
+    <link rel="stylesheet" href="Contents/magnific-popup.css">
+
+    <link rel="stylesheet" href="Contents/animate.min.css">
+    <link rel="stylesheet" href="Contents/font-awesome.min.css">
+
+    <link rel="stylesheet" href="Contents/nivo-lightbox.css">
+    <link rel="stylesheet" href="Contentsss/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="Contents/hover-min.css">
+    <link rel="stylesheet" href="Contents/flexslider.css">
+
+    <link rel="stylesheet" href="Contents/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-pulse"></div>
+    </div>
+
+    <section id="home" class="parallax-section">
+        <div class="gradient-overlay"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-12">
+                    <h1 class="wow fadeInUp" data-wow-delay="0.6s">FoodBlogBD</h1>
+                    <p class="wow fadeInUp" data-wow-delay="1.0s">
+                        Our Mission is for the Foodies. This website aims to create a perfect Foodies guide for Dhaka and other cities, based on your experience and contribution, so that anyone can easily find their preferred Food information.
+                        Food Blog BD is for  Foodies where your reviews, pictures, posts and suggestions of Food helps other Foodies know better!
+                        Its all about Food in Dhaka, places to eat, new items to try and your opinions about food joints.
+                        Join Us, lets have some fun reviewing food.
+                    </p>
+                    <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Discover Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">FoodBlogBD</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#top" class="smoothScroll">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Food Category
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+@foreach (var item in Model) {
+                            <li><a href="/foodCategory/Index/@item.Id">@Html.DisplayFor(modelItem => item.categoryName)</a></li>
+}
+                        </ul>
+                    </li>
+                    <li><a href="#topRestaurant" class="smoothScroll">Top Restaurants</a></li>
+                    <li><a href="#" class="smoothScroll">Popular Spots</a></li>
+                    <li><a href="#" class="smoothScroll">Blog</a></li>
+                    <li><a href="#team" class="smoothScroll">About Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="id01" class="modal">
+
+                <form class="modal-content animate" action="">
+                    <div class="container">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-6">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <img src="~/images/logIN_avatar.png" alt="Avatar" class="avatar" style="width:200px; height:200px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="col-md-2"></div>
+                        <div class="col-sm-6">
+                            <div class="form-signin">
+                                <h2 class="form-signin-heading"></h2>
+                                <label for="inputEmail" class="sr-only">User Name</label>
+                                <input type="text" id="inputUsername" name="username" class="form-control" placeholder="User Name" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required><br />
+                                <div class="checkbox">
+                                    <strong>@ViewBag.ErrorMsg</strong>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <br />
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6">
+
+                            <label>
+                                &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; Press <strong>
+                                    <a href="/UserProfile/Create"> <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a>
+                                </strong> to Create an Account.
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-btn search-panel">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span id="search_concept">Filter by</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#contains">Restaurents</a></li>
+                            <li><a href="#its_equal">Food</a></li>
+                            <li><a href="#greather_than">Posts</a></li>
+
+                            <li class="divider"></li>
+                            <li><a href="#all">Anything</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    <input type="text" id="searchTxtIdUser" name="nameSearch" class="form-control" placeholder="Search" required />
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+
+    <section id="feature" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
+                        <h2>Why Choose Us?</h2>
+                        <h4>FoodBlogBD</h4>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="feature-thumb">
+                        <div class="feature-icon">
+                            <span><i class="fa fa-cutlery"></i></span>
+                        </div>
+                        <h3>Location Finder</h3>
+                        <p>You can find all Restaurants addresses and locations in our website.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="feature-thumb">
+                        <div class="feature-icon">
+                            <span><i class="fa fa-coffee"></i></span>
+                        </div>
+                        <h3>All in 1</h3>
+                        <p>You can find all Restaurants food menues and informations in one place.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="feature-thumb">
+                        <div class="feature-icon">
+                            <span><i class="fa fa-newspaper-o"></i></span>
+                        </div>
+                        <h3>Blog</h3>
+                        <p>You can see all posts in every particular restaurants. You can also write posts if you want.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="topRestaurant" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Popular Restaurants</h2>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="col-md-6 col-sm-12" data-wow-delay="0.6s">
+                        <div class="media-object pull-left">
+                            <img src="images/gallery-img1.gif" class="img-responsive" alt="Food Menu">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">KFC</h3>
+                            <p>
+                                KFC is the world’s most popular chicken restaurant chain.KFC started its journey in Bangladesh on the 6th of September, 2006.
+                                Transcom Foods Limited, as the sole franchisee of KFC opened the doors of the first KFC restaurant in Gulshan 1.
+                                Today, KFC has grown as a brand, winning people’s hearts and has opened 19 restaurants in 3 cities across Bangladesh.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" data-wow-delay="1.2s">
+                        <div class="media-object pull-left">
+                            <img src="images/gloriaJeans.jpg" class="img-responsive" alt="Food Menu">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Gloria Jean’s Coffees</h3>
+                            <p>
+                                Gloria Jean’s Coffees was founded in Australia in 1996 with the ambition to be the most loved and respected coffee company worldwide.
+                                Gloria Jean’s Coffees has opened 3 restaurants in Dhaka, Bangladesh
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="col-md-6 col-sm-12" data-wow-delay="1s">
+                        <div class="media-object pull-left">
+                            <img src="images/gallery-img4.png" class="img-responsive" alt="Food Menu">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Pizza Hut</h3>
+                            <p>
+                                Pizza Hut is a US based international restaurant chain that is home to one of the world’s favorite food, Pizzas and much more.
+                                Pizza Hut, in Bangladesh, has been trying to make their pizzas more accessible to the customers by both creating value and opening new stores
+                                across geographical area. From the beginning of their journey in Bangladesh in 2003, Pizza Hut has opened 8 dine-in restaurants and 8 Pizza Hut
+                                outlets from where the valued customers can get their pizzas delivered
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12" data-wow-delay="1.3s">
+                        <div class="media-object pull-left">
+                            <img src="images/boomers.jpg" class="img-responsive" alt="Food Menu">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Boomers Cafe</h3>
+                            <p>
+                                Boomers Cafe  started welcoming guests first at Banani, Dhaka, Bangladesh since 2001.Since then,it has expanded to 4 outlets all over Dhaka,
+                                be it celebrations, a break at lunch or just a great meal, we just enjoy giving you the perfect place to share great time with friends and family.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Meet Our Owners</h2>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-5 col-sm-7 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-thumb">
+                        <img src="images/abhijitSir.jpg" class="img-responsive" alt="Team">
+                        <div class="team-des">
+                            <h3>Abhijit Bhowmik</h3>
+                            <h4>Adviser</h4>
+                            <ul class="social-icon">
+                                <li><a href="https://www.facebook.com/ovi775?fref=ts" class="fa fa-facebook"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-thumb">
+                        <img src="images/neamul.jpg" class="img-responsive" alt="Team">
+                        <div class="team-des">
+                            <h3>Neamul Haque</h3>
+                            <h4>Developer</h4>
+                            <ul class="social-icon">
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-dribbble"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="team-thumb">
+                        <img src="images/abid.jpg" class="img-responsive" alt="Team">
+                        <div class="team-des">
+                            <h3>Abid Hasan</h3>
+                            <h4>quality test engineer</h4>
+                            <ul class="social-icon">
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="team-thumb">
+                        <img src="images/sohel.jpg" class="img-responsive" alt="Team">
+                        <div class="team-des">
+                            <h3>Shamim Reza</h3>
+                            <h4>Researcher</h4>
+                            <ul class="social-icon">
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div><div class="clearfix"></div>
+
+                <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
+                    <h2>Our Service</h2>
+                    <p>
+                        The main focus of our website to create a single website where user can get everything and every information.
+                        In a special occasion, we will send to email all registered user about the restaurant special offer. So that, users will notify and up to date and less chance to claim the offer.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="parallax-section">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Say hello</h2>
+                        <h4>we are always ready to help you!</h4>
+                    </div>
+                    <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                        <form id="contact-form" method="post" action="#">
+                            <input name="name" type="text" class="form-control" placeholder="Your Name" required>
+                            <input name="email" type="email" class="form-control" placeholder="Your Email" required>
+                            <textarea name="message" class="form-control" placeholder="Message" rows="5" required></textarea>
+                            <input type="submit" class="form-control submit" value="SEND MESSAGE">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="address">
+        <footer>
+            <div class="container">
+                <div class="row">
+
+                    <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
+                        <h3>About the house</h3>
+                        <p></p>
+                    </div>
+
+                    <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.6s">
+                        <h3>Contact Detail</h3>
+                        <p>House 83/B, Road 4, Kemal Ataturk Avenue, Banani,Dhaka 1213, Bangladesh</p>
+                        <p>+88-02-9894229, +88-02-9897387, +88-02-58815357</p>
+                        <p>info@aiub.edu</p>
+                    </div>
+
+                    <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.9s">
+                        <h3>Opening Service Hours</h3>
+                        <strong>Sunday - Thursday</strong>
+                        <p>8:00 AM - 8:00 PM</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <section id="copyright">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <p>Copyright © 2017 FoodBlogBD <br /> Designed by Khan Neamul Haque, Hasan A.K.M Abid, Sohel Shamim Reza </p>
+                </div>
+
+                <div class="col-md-4 col-sm-4 text-right">
+                    <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="Scripts/jquery.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <script src="Scripts/jquery.magnific-popup.min.js"></script>
+
+    <script src="Scripts/jquery.sticky.js"></script>
+    <script src="Scripts/jquery.backstretch.min.js"></script>
+
+    <script src="Scripts/isotope.js"></script>
+    <script src="Scripts/imagesloaded.min.js"></script>
+    <script src="Scripts/nivo-lightbox.min.js"></script>
+
+    <script src="Scripts/jquery.flexslider-min.js"></script>
+
+    <script src="Scripts/jquery.parallax.js"></script>
+    <script src="Scripts/smoothscroll.js"></script>
+    <script src="Scripts/wow.min.js"></script>
+
+    <script src="Scripts/custom.js"></script>
+    <script src="~/Scripts/myScript.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 
 <html>
 <head>
@@ -10,8 +488,31 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        Home
-    </div>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.categoryName)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
 </body>
 </html>
+    -->

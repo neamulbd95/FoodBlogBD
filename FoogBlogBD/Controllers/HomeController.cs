@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FoodBlogBD_Entity;
+using FoodBlogBD_ServiceLayer;
+using FoogBlogBD.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,10 +13,13 @@ namespace FoogBlogBD.Controllers
     {
         //
         // GET: /Home/
+        iItem_Category_Service category = Service_Center.GetItem_Category_Service();
+        iRestaurant_Rating_Service rate = Service_Center.GetRestaurant_Rating_Service();
+        iRestaurant_info_Service restInfo = Service_Center.GetRestaurant_info_Service();
 
         public ActionResult Index()
         {
-            return View();
+            return View(category.GetAllValues());
         }
 
     }

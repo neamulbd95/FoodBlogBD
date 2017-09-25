@@ -16,6 +16,10 @@ namespace FoodBlodBD_DataLayer
             this.context = context;
         }
 
+        public IEnumerable<User_Authentication> GetAllValues()
+        {
+            return this.context.User_Authentication.ToList();
+        }
         public User_Authentication GetSingle(string username, string password)
         {
             return this.context.User_Authentication.SingleOrDefault(x => x.userName == username && x.passWord == password);
