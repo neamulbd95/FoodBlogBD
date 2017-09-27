@@ -1,0 +1,98 @@
+
+
+
+/*Fonts for the theme  */
+
+@font-face{
+    font-family: robotoregular;
+    src: url(../fonts/Roboto-Regular.ttf);
+
+
+}
+@font-face{
+    font-family: robotomedium;
+    src: url(../fonts/Roboto-Medium.ttf);
+
+
+}
+@font-face{
+    font-family: robotobold;
+    src: url(../fonts/Roboto-Bold.ttf);
+
+
+}
+@font-face{
+    font-family: robotoconregular;
+    src: url(../fonts/RobotoCondensed-Regular.ttf);
+
+}
+
+@font-face{
+    font-family: Campton-BoldDEMO;
+    src: url(../fonts/Campton-BoldDEMO.otf);
+}
+
+
+
+.padding_left_10{
+    padding-left: 10px;
+
+}
+
+.padding_left_20{
+    padding-left: 20px;
+}
+
+.padding_left_30{
+    padding-left: 30px;
+}
+
+.padding_left_40{
+    padding-left: 40px;
+}
+
+.padding_left_50{
+    padding-left: 50px;
+}
+
+.padding_top_10{
+    padding-top: 10px;
+}
+
+.padding_top_20{
+    padding-top: 20px;
+}
+
+.padding_top_30{
+    padding-top: 30px;
+}
+
+.padding_top_40{
+    padding-top: 10px;
+}
+
+.padding_top_50{
+    padding-top: 50px;
+}
+
+.padding_bottom_10{
+    padding-bottom: 10px;
+}
+
+.padding_bottom_20{
+    padding-bottom: 20px;
+}
+
+.padding_bottom_30{
+    padding-bottom: 30px;
+}
+.padding_bottom_40{
+    padding-bottom: 40px;
+}
+
+.padding_bottom_50{
+    padding-bottom: 50px;
+}
+
+
+
