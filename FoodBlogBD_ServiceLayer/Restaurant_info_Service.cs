@@ -25,6 +25,10 @@ namespace FoodBlogBD_ServiceLayer
         {
             return this.data.GetSingle(id);
         }
+        public IEnumerable<Restaurant_info> GetTopRated()
+        {
+            return this.data.GetTopRated();
+        }
         public void Insert(Restaurant_info Restaurant_info)
         {
             this.data.Insert(Restaurant_info);
@@ -33,6 +37,11 @@ namespace FoodBlogBD_ServiceLayer
         {
             this.data.Update(Restaurant_info);
         }
+        public void UpdateRating(Restaurant_info Restaurant_info)
+        {
+            this.data.UpdateRating(Restaurant_info);
+        }
+
         public void Delete(int id)
         {
             this.data.Delete(id);

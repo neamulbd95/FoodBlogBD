@@ -15,7 +15,7 @@ namespace FoodBlogBD_Entity
         public string categoryName { get; set; }
 
         public virtual List<Item_Section> Item_Section { get; set; }
-        public virtual List<restaurantItem> restaurantItem { get; set; }
+        //public virtual List<restaurantItem> restaurantItem { get; set; }
 
     }
 }

@@ -34,3 +34,7 @@ G:\asp\SP2_Project\FoogBlogBD\obj\Debug\FoogBlogBD.dll
 G:\asp\SP2_Project\FoogBlogBD\obj\Debug\FoogBlogBD.pdb
 G:\asp\SP2_Project\FoogBlogBD\bin\FoodBlodBD_DataLayer.dll
 G:\asp\SP2_Project\FoogBlogBD\bin\FoodBlodBD_DataLayer.pdb
+G:\asp\SP2_Project\FoogBlogBD\bin\PagedList.dll
+G:\asp\SP2_Project\FoogBlogBD\bin\PagedList.Mvc.dll
+G:\asp\SP2_Project\FoogBlogBD\bin\PagedList.xml
+G:\asp\SP2_Project\FoogBlogBD\bin\PagedList.Mvc.xml

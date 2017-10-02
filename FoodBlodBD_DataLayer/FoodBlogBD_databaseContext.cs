@@ -18,7 +18,6 @@ namespace FoodBlodBD_DataLayer
         public DbSet<User_Post_Approval> User_Post_Approval { get; set; }
 
         public DbSet<Restaurant_info> Restaurant_info { get; set; }
-        public DbSet<Restaurant_Rating> Restaurant_Rating { get; set; }
         public DbSet<restaurant_Branch> restaurant_Branch { get; set; }
         public DbSet<restaurantItem> restaurantItems { get; set; }
         public DbSet<Item_Category> Item_Category { get; set; }
@@ -26,5 +25,6 @@ namespace FoodBlodBD_DataLayer
         public DbSet<Restaurant_FoodCategory> Restaurant_FoodCategory { get; set; }
         public DbSet<Restaurant_Post> Restaurant_Post { get; set; }
 
+        public DbSet<Area_Info> Area_Info { get; set; }
     }
 }

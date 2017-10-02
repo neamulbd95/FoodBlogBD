@@ -19,13 +19,18 @@ namespace FoodBlodBD_DataLayer
         {
             return this.context.restaurantItems.Where(x => x.restaurantID == restaurantID).ToList();
         }
+
+        public  IEnumerable<restaurantItem> GetByCategory(int categoryID)
+        {
+            return this.context.restaurantItems.Where(x => x.itemCategory == categoryID).ToList();
+        }
         public IEnumerable<restaurantItem> GetBySection(int sectionitemSection)
         {
             return this.context.restaurantItems.Where(x => x.itemSection == sectionitemSection).ToList();
         }
-        public IEnumerable<restaurantItem> GetByPrice(int min, int max)
+        public IEnumerable<restaurantItem> GetByPrice(int id, int min, int max)
         {
-            return this.context.restaurantItems.Where(x => x.itemPrice >= min && x.itemPrice <= max).ToList();
+            return this.context.restaurantItems.Where(x => x.itemCategory ==id && x.itemPrice >= min && x.itemPrice <= max).ToList();
         }
         public void Insert(restaurantItem restaurantItem)
         {

@@ -12,8 +12,10 @@ namespace FoodBlodBD_DataLayer
         IEnumerable<Restaurant_info> GetAllValues();
         //IEnumerable<Restaurant_info> GetByArea(string areaName);
         Restaurant_info GetSingle(int id);
+        IEnumerable<Restaurant_info> GetTopRated();
         void Insert(Restaurant_info Restaurant_info);
         void Update(Restaurant_info Restaurant_info);
+        void UpdateRating(Restaurant_info Restaurant_info);
         void Delete(int id);
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Area_Info.cs" />
     <Compile Include="Item_Category.cs" />
     <Compile Include="Item_Section.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,7 +55,6 @@
     <Compile Include="Restaurant_FoodCategory.cs" />
     <Compile Include="Restaurant_info.cs" />
     <Compile Include="Restaurant_Post.cs" />
-    <Compile Include="Restaurant_Rating.cs" />
     <Compile Include="User_Authentication.cs" />
     <Compile Include="User_Comment.cs" />
     <Compile Include="User_info.cs" />

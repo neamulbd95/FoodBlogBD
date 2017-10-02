@@ -10,8 +10,9 @@ namespace FoodBlogBD_ServiceLayer
     public interface irestaurantItems_Service
     {
         IEnumerable<restaurantItem> GetByRestaurant(int restaurantID);
+        IEnumerable<restaurantItem> GetByCategory(int categoryID);
         IEnumerable<restaurantItem> GetBySection(int sectionitemSection);
-        IEnumerable<restaurantItem> GetByPrice(int min, int max);
+        IEnumerable<restaurantItem> GetByPrice(int id, int min, int max);
         void Insert(restaurantItem restaurantItem);
         void Update(restaurantItem restaurantItem);
         void DeleteSingle(int id);

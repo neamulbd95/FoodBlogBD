@@ -10,7 +10,6 @@ namespace FoodBlogBD_Entity
 {
     public class restaurantItem
     {
-        //restaurant
         [Key]
         public int Id { get; set; }
         [Required]
@@ -23,6 +22,8 @@ namespace FoodBlogBD_Entity
         public int itemPrice { get; set; }
         [Required]
         public string otherInfo { get; set; }
+        [Required]
+        public string itemPicture { get; set; }
 
 
         /*[ForeignKey("restaurantID")]

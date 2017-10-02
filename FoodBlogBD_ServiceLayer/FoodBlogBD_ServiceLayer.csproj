@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Area_Info_Service.cs" />
+    <Compile Include="iArea_Info_Service.cs" />
     <Compile Include="iItem_Category_Service.cs" />
     <Compile Include="iItem_Section_Service.cs" />
     <Compile Include="irestaurantItems_Service.cs" />
@@ -53,7 +55,6 @@
     <Compile Include="iRestaurant_FoodCategory_Service.cs" />
     <Compile Include="iRestaurant_info_Service.cs" />
     <Compile Include="iRestaurant_Post_Service.cs" />
-    <Compile Include="iRestaurant_Rating_Service.cs" />
     <Compile Include="Item_Category_Service.cs" />
     <Compile Include="Item_Section_Service.cs" />
     <Compile Include="iUser_Authentication_Service.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Restaurant_FoodCategory_Service.cs" />
     <Compile Include="Restaurant_info_Service.cs" />
     <Compile Include="Restaurant_Post_Service.cs" />
-    <Compile Include="Restaurant_Rating_Service.cs" />
     <Compile Include="Service_Center.cs" />
     <Compile Include="User_Authentication_Service.cs" />
     <Compile Include="User_Comment_Service.cs" />

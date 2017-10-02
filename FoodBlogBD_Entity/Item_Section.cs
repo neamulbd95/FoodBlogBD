@@ -18,6 +18,6 @@ namespace FoodBlogBD_Entity
         [ForeignKey("categoryID")]
         public virtual Item_Category Item_Category { get; set; }
 
-        public List<restaurantItem> restaurantItem { get; set; }
+        //public List<restaurantItem> restaurantItem { get; set; }
     }
 }

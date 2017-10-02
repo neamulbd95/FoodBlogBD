@@ -21,13 +21,17 @@ namespace FoodBlogBD_ServiceLayer
         {
             return this.data.GetByRestaurant(restaurantID);
         }
+        public IEnumerable<restaurantItem> GetByCategory(int categoryID)
+        {
+            return this.data.GetByCategory(categoryID);
+        }
         public IEnumerable<restaurantItem> GetBySection(int sectionitemSection)
         {
             return this.data.GetBySection(sectionitemSection);
         }
-        public IEnumerable<restaurantItem> GetByPrice(int min, int max)
+        public IEnumerable<restaurantItem> GetByPrice(int id, int min, int max)
         {
-            return this.data.GetByPrice(min, max);
+            return this.data.GetByPrice(id,min, max);
         }
         public void Insert(restaurantItem restaurantItem)
         {

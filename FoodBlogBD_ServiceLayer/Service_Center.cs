@@ -49,10 +49,6 @@ namespace FoodBlogBD_ServiceLayer
             return new Restaurant_info_Service(DataAccess_Center.GetRestaurant_info_DataAccess());
         }
 
-        public static iRestaurant_Rating_Service GetRestaurant_Rating_Service()
-        {
-            return new Restaurant_Rating_Service(DataAccess_Center.GetRestaurant_Rating_DataAccess());
-        }
 
         public static irestaurant_Branch_Service GetRestaurant_Branch_Service()
         {
@@ -82,6 +78,11 @@ namespace FoodBlogBD_ServiceLayer
         public static iRestaurant_Post_Service GetRestaurant_Post_Service()
         {
             return new Restaurant_Post_Service(DataAccess_Center.GetRestaurant_Post_DataAccess());
+        }
+
+        public static iArea_Info_Service GetArea_Info_Service()
+        {
+            return new Area_Info_Service(DataAccess_Center.GetArea_Info_DataAccess());
         }
     }
 }

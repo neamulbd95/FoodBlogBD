@@ -49,11 +49,6 @@ namespace FoodBlodBD_DataLayer
             return new Restaurant_info_DataAccess(new FoodBlogBD_databaseContext());
         }
 
-        public static iRestaurant_Rating_DataAccess GetRestaurant_Rating_DataAccess()
-        {
-            return new Restaurant_Rating_DataAccess(new FoodBlogBD_databaseContext());
-        }
-
         public static irestaurant_Branch_DataAccess GetRestaurant_Branch_DataAccess()
         {
             return new Restaurant_Branch_DataAccess(new FoodBlogBD_databaseContext());
@@ -82,6 +77,11 @@ namespace FoodBlodBD_DataLayer
         public static iRestaurant_Post_DataAccess GetRestaurant_Post_DataAccess()
         {
             return new Restaurant_Post_DataAccess(new FoodBlogBD_databaseContext());
+        }
+
+        public static iArea_Info_DataAccess GetArea_Info_DataAccess()
+        {
+            return new Area_Info_DataAccess(new FoodBlogBD_databaseContext());
         }
 
     }

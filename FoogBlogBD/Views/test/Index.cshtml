@@ -1,0 +1,91 @@
+﻿@model FoodBlogBD_Entity.Restaurant_info
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Restaurant_info</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.restaurantName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.restaurantName)
+            @Html.ValidationMessageFor(model => model.restaurantName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.restaurantDetails)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.restaurantDetails)
+            @Html.ValidationMessageFor(model => model.restaurantDetails)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.restaurantLogo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.restaurantLogo)
+            @Html.ValidationMessageFor(model => model.restaurantLogo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContactNumber)
+            @Html.ValidationMessageFor(model => model.ContactNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.totalRating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.totalRating)
+            @Html.ValidationMessageFor(model => model.totalRating)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ratingGivenUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ratingGivenUser)
+            @Html.ValidationMessageFor(model => model.ratingGivenUser)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.avarageRating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.avarageRating)
+            @Html.ValidationMessageFor(model => model.avarageRating)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
