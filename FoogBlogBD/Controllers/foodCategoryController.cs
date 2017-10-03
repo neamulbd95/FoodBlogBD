@@ -114,10 +114,52 @@ namespace FoogBlogBD.Controllers
             
         }
 
-        public ActionResult foodItemBySection(int sectionID)
+        public ActionResult foodItemBySection(int Id)
         {
+            IEnumerable<Item_Category> categoryList = category.GetAllValues();
+            IEnumerable<restaurantItem> itemsList = foodItems.GetBySection(Id);
+            IEnumerable<Item_Section> sectionList = section.GetByCategory(section.GetSingle(Id).categoryID);
 
-            return View();
+            List<ShowFoodItem> selectItemList = new List<ShowFoodItem>();
+
+            foreach (Item_Section sec in sectionList)
+            {
+                ShowFoodItem showItem = new ShowFoodItem();
+
+                showItem.sectionID = sec.Id;
+                showItem.sectionName = sec.sectionName;
+
+                selectItemList.Add(showItem);
+            }
+
+            foreach (restaurantItem i in itemsList)
+            {
+                ShowFoodItem showItem = new ShowFoodItem();
+
+                showItem.itemID = i.Id;
+                showItem.itemName = i.itemName;
+                showItem.itemPrice = i.itemPrice;
+                showItem.itemPicture = i.itemPicture;
+                showItem.itemSection = section.GetSingle(i.itemSection).sectionName;
+                showItem.restaurantID = restaurantInfo.GetSingle(i.restaurantID).Id;
+                showItem.restaurantName = restaurantInfo.GetSingle(i.restaurantID).restaurantName;
+                showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
+
+                selectItemList.Add(showItem);
+            }
+
+            foreach (Item_Category c in categoryList)
+            {
+                ShowFoodItem cat = new ShowFoodItem();
+                cat.categoryID = c.Id;
+                cat.categoryName = c.categoryName;
+
+                selectItemList.Add(cat);
+            }
+
+            ViewBag.categoryID = section.GetSingle(Id).categoryID;
+            ViewBag.CategoryName = category.GetSingle(section.GetSingle(Id).categoryID).categoryName;
+            return View(selectItemList);
         }
     }
 }
