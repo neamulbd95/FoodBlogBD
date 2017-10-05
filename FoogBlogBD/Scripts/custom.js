@@ -14,14 +14,10 @@ $(document).ready(function() {
         mainClass: 'mfp-fade',
         removalDelay: 160,
         preloader: false,
-         fixedContentPos: false,
+        fixedContentPos: false,
     });
+    //    $("#ex2").slider({});
 });
-
-$(document).ready(function() {
-    $("#ex2").slider({});
-});
-
 
 /* Istope Portfolio
 -----------------------------------------------*/
@@ -119,9 +115,9 @@ $(document).ready(function() {
   $(function(){
     jQuery(document).ready(function() {
     $('#home').backstretch([
-       "images/home-bg-slideshow1.jpg", 
-       "images/home-bg-slideshow2.jpg",
-       "images/home-bg-slideshow3.jpg",
+       "/images/home-bg-slideshow1.jpg", 
+       "/images/home-bg-slideshow2.jpg",
+       "/images/home-bg-slideshow3.jpg",
         ],  {duration: 2000, fade: 750});
     });
   })
@@ -183,3 +179,4 @@ function myFunction() {
         }
     }
 }
+

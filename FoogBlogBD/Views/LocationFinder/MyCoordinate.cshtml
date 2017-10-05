@@ -1,0 +1,226 @@
+﻿@model IEnumerable<FoogBlogBD.Models.LocationFinderRestaurants>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>FoodBlogBD</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link href="~/Contents/style.css" rel="stylesheet" />
+    <link href="~/Contents/default.css" rel="stylesheet" />
+    <link href="~/Contents/bootstrap.css" rel="stylesheet" />
+    <link href="~/Contents/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Contents/animate.min.css" rel="stylesheet" />
+    <link href="~/Contents/font-awesome.css" rel="stylesheet" />
+    <link href="~/Contents/nivo-lightbox.css" rel="stylesheet" />
+    <link href="~/Contents/hover-min.css" rel="stylesheet" />
+    <link href="~/Contents/flexslider.css" rel="stylesheet" />
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50" onload="showMap();">
+
+    <div class=" navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+            <a href="/Home/Index/" class="navbar-brand">FoodBlogBD</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/Home/Index/" class="smoothScroll">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Food Category
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/foodCategory/Index/1">Fast Food</a></li>
+                        <li><a href="/foodCategory/Index/2">Indian</a></li>
+                        <li><a href="/foodCategory/Index/3">Chinese</a></li>
+                        <li><a href="/foodCategory/Index/4">Bangladeshi</a></li>
+                        <li><a href="/foodCategory/Index/5">Biryani</a></li>
+                        <li><a href="/foodCategory/Index/6">Cafe</a></li>
+                        <li><a href="/foodCategory/Index/8">Lunch Item</a></li>
+                    </ul>
+                </li>
+                <li><a href="/Restaurant/ShowAllRestaurants/" class="smoothScroll">All Restaurants</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Popular Spots
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Restaurant/showRestaurantByArea/4">Banani</a></li>
+                        <li><a href="/Restaurant/showRestaurantByArea/9">Dhanmondi</a></li>
+                        <li><a href="/Restaurant/showRestaurantByArea/13">Gulshan</a></li>
+                        <li><a href="/Restaurant/showRestaurantByArea/20">Khilgaon</a></li>
+                        <li><a href="/Restaurant/showRestaurantByArea/22">Mirpur</a></li>
+                    </ul>
+                </li>
+                <li><a href="/BlogHome/Index/" class="smoothScroll">Blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="id01" class="modal">
+
+            <form class="modal-content animate" action="">
+                <div class="container">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-6">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <img src="~/images/logIN_avatar.png" alt="Avatar" class="avatar" style="width:200px; height:200px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-md-1"></div>
+                    <div class="col-sm-6">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="form-signin">
+                                <h2 class="form-signin-heading"></h2>
+                                <label for="inputEmail" class="sr-only">User Name</label>
+                                <input type="text" id="inputUsername" name="username" class="form-control" placeholder="User Name" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required><br />
+                                <div class="checkbox">
+                                    <strong>@ViewBag.ErrorMsg</strong>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-6">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <label>
+                                &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; Press <strong>
+                                    <a href="/UserProfile/Create"> <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a>
+                                </strong> to Create an Account.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                @using (Html.BeginForm("Index", "Search_User"))
+                {
+                <div class="input-group">
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    <input type="text" id="searchTxtIdUser" name="nameSearch" class="form-control" placeholder="Search" required />
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-info" name="serachBtn">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-2">
+                <div class="col-md-8">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Closet Restaurants From your Location
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img src="@Url.Content(item.restaurantLOGO)" class="img-responsive" alt="Food Menu" width="100" height="100">
+                                            </td>
+                                            <td>
+                                                <h2>@Html.DisplayFor(modelItem => item.branchName)</h2>
+                                                <h3>Area : @Html.DisplayFor(modelItem => item.branchArea)</h3>
+                                                <h5><i class="fa fa-address-book-o" aria-hidden="true">@Html.DisplayFor(modelItem => item.branchAddress)</i></h5>
+                                                <h5><i class="fa fa-phone" aria-hidden="true">@Html.DisplayFor(modelItem => item.branchPhoneNumber)</i></h5>
+                                                <h5><i class="fa fa-clock-o" aria-hidden="true">Hours :@Html.DisplayFor(modelItem => item.branchOpenHour) - @Html.DisplayFor(modelItem => item.branchCloseHour)</i></h5>
+                                                <a href="/Restaurant/Index/@item.restaurantID">View Details</a>
+                                                <input type="hidden" id="latiID" value="@Html.DisplayFor(modelItem => item.branchLati)" />
+                                                <input type="hidden" id="longiID" value="@Html.DisplayFor(modelItem => item.branchLongi)" />
+                                            </td>
+                                            <td>
+                                                <div id="googleMap" style="width:100%;height:100%"></div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+
+    <script src="~/Scripts/jquery.sticky.js"></script>
+    <script src="~/Scripts/jquery.backstretch.min.js"></script>
+
+    <script src="~/Scripts/isotope.js"></script>
+    <script src="~/Scripts/imagesloaded.min.js"></script>
+    <script src="~/Scripts/nivo-lightbox.min.js"></script>
+
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+
+    <script src="~/Scripts/jquery.parallax.js"></script>
+    <script src="~/Scripts/smoothscroll.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/myScript.js"></script>
+
+</body>
+</html>

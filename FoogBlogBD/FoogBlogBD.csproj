@@ -124,17 +124,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BlogHomeController.cs" />
     <Compile Include="Controllers\foodCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationFinderController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\Search_UserController.cs" />
     <Compile Include="Controllers\testController.cs" />
+    <Compile Include="Controllers\UserAuthenticationController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\allRestaurantInfo.cs" />
+    <Compile Include="Models\BlogListModel.cs" />
     <Compile Include="Models\HomePageModel.cs" />
+    <Compile Include="Models\LocationFinderRestaurants.cs" />
     <Compile Include="Models\RestaurantsFoodCategory.cs" />
+    <Compile Include="Models\searchItemModel.cs" />
     <Compile Include="Models\ShowFoodItem.cs" />
+    <Compile Include="Models\UserPostCommentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +151,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Contents\animate.min.css" />
+    <Content Include="Contents\blog-home.css" />
+    <Content Include="Contents\bootstrap-datepicker.css" />
     <Content Include="Contents\bootstrap-theme.css" />
     <Content Include="Contents\bootstrap.css" />
     <Content Include="Contents\bootstrap.min.css" />
@@ -161,6 +172,7 @@
     <Content Include="images\abhijitSir.jpg" />
     <Content Include="images\abid.jpg" />
     <Content Include="images\about-img.jpg" />
+    <Content Include="images\banani.jpg" />
     <Content Include="images\boomers.jpg" />
     <Content Include="images\contact-bg.jpg" />
     <Content Include="images\foo.png" />
@@ -182,7 +194,9 @@
     <Content Include="images\slide-img3.jpg" />
     <Content Include="images\sohel.jpg" />
     <Content Include="images\video-bg.jpg" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AutoSearch.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />
@@ -197,6 +211,7 @@
     <Content Include="Scripts\jquery.sticky.js" />
     <Content Include="Scripts\myScript.js" />
     <Content Include="Scripts\nivo-lightbox.min.js" />
+    <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\smoothscroll.js" />
     <Content Include="Scripts\wow.min.js" />
     <Content Include="Web.config" />
@@ -268,6 +283,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\foodCategory\priceFilter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\foodCategory\foodItemBySection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Search_User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LocationFinder\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LocationFinder\MyCoordinate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BlogHome\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BlogHome\PostDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserAuthentication\signUp.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

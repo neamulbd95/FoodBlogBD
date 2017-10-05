@@ -77,7 +77,20 @@ namespace FoogBlogBD.Controllers
 
                 IEnumerable<Item_Category> categoryList = category.GetAllValues();
                 IEnumerable<restaurantItem> itemsList = foodItems.GetByPrice(categoryID, 0, maximum);
+                IEnumerable<Item_Section> sectionList = section.GetByCategory(categoryID);
+
                 List<ShowFoodItem> selectItemList = new List<ShowFoodItem>();
+
+                foreach (Item_Section sec in sectionList)
+                {
+                    ShowFoodItem showItem = new ShowFoodItem();
+
+                    showItem.sectionID = sec.Id;
+                    showItem.sectionName = sec.sectionName;
+
+                    selectItemList.Add(showItem);
+                }
+
 
                 foreach (restaurantItem i in itemsList)
                 {

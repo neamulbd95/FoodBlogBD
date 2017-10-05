@@ -38,5 +38,9 @@ namespace FoodBlogBD_ServiceLayer
             this.data.Delete(id);
         }
 
+        public IEnumerable<Item_Section> searchSection(string keyword)
+        {
+            return this.data.searchSection(keyword);
+        }
     }
 }

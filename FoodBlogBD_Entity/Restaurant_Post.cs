@@ -18,8 +18,8 @@ namespace FoodBlogBD_Entity
         public int restuarantID { get; set; }
         public DateTime postDate { get; set; }
 
-        [ForeignKey("restuarantID")]
-        public virtual Restaurant_info User_info { get; set; }
+        //[ForeignKey("restuarantID")]
+        //public virtual Restaurant_info User_info { get; set; }
 
     }
 }

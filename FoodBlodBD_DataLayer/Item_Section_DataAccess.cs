@@ -41,5 +41,9 @@ namespace FoodBlodBD_DataLayer
 
             this.context.SaveChanges();
         }
+        public IEnumerable<Item_Section> searchSection(string keyword)
+        {
+            return this.context.Item_Section.Where(x => x.sectionName.Contains(keyword));
+        }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="iItem_Section_DataAccess.cs" />
     <Compile Include="irestaurantItems_DataAccess.cs" />
     <Compile Include="irestaurant_Branch_DataAccess.cs" />
+    <Compile Include="iRestaurant_Coordinate_DataAcccess.cs" />
     <Compile Include="iRestaurant_FoodCategory_DataAccess.cs" />
     <Compile Include="iRestaurant_info_DataAccess.cs" />
     <Compile Include="iRestaurant_Post_DataAccess.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantItem_DataAccess.cs" />
     <Compile Include="Restaurant_Branch_DataAccess.cs" />
+    <Compile Include="Restaurant_Coordinate_DataAcccess.cs" />
     <Compile Include="Restaurant_FoodCategory_DataAccess.cs" />
     <Compile Include="Restaurant_info_DataAccess.cs" />
     <Compile Include="Restaurant_Post_DataAccess.cs" />

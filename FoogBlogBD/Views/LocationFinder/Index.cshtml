@@ -1,0 +1,234 @@
+﻿@model FoogBlogBD.Models.allRestaurantInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>FoodBlogBD</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link href="~/Contents/style.css" rel="stylesheet" />
+    <link href="~/Contents/default.css" rel="stylesheet" />
+    <link href="~/Contents/bootstrap.css" rel="stylesheet" />
+    <link href="~/Contents/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Contents/animate.min.css" rel="stylesheet" />
+    <link href="~/Contents/font-awesome.css" rel="stylesheet" />
+    <link href="~/Contents/nivo-lightbox.css" rel="stylesheet" />
+    <link href="~/Contents/hover-min.css" rel="stylesheet" />
+    <link href="~/Contents/flexslider.css" rel="stylesheet" />
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="/Home/Index/" class="navbar-brand">FoodBlogBD</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/Home/Index/" class="smoothScroll">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Food Category
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach (var c in Model.categoryList)
+                            {
+                                <li><a href="/foodCategory/Index/@c.Id">@Html.DisplayFor(modelItem => c.categoryName)</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li><a href="/Restaurant/ShowAllRestaurants/" class="smoothScroll">All Restaurants</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Popular Spots
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Restaurant/showRestaurantByArea/4">Banani</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/9">Dhanmondi</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/13">Gulshan</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/20">Khilgaon</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/22">Mirpur</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="smoothScroll">Blog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="id01" class="modal">
+
+                <form class="modal-content animate" action="">
+                    <div class="container">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-6">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                <div class="imgcontainer">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <img src="~/images/logIN_avatar.png" alt="Avatar" class="avatar" style="width:200px; height:200px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="col-md-1"></div>
+                        <div class="col-sm-6">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                <div class="form-signin">
+                                    <h2 class="form-signin-heading"></h2>
+                                    <label for="inputEmail" class="sr-only">User Name</label>
+                                    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="User Name" required autofocus>
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required><br />
+                                    <div class="checkbox">
+                                        <strong>@ViewBag.ErrorMsg</strong>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-6">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                <label>
+                                    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; Press <strong>
+                                        <a href="/UserProfile/Create"> <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a>
+                                    </strong> to Create an Account.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+   
+    <section id="home" class="parallax-section" style="height:500%">
+        <div class="gradient-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8 col-sm-12">
+                    <h2 class="wow fadeInUp" data-wow-delay="0.6s">WelCome To The Location Finder</h2>
+                    <button class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s" onclick="getLocation()" style="width:40%">
+                    <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp; Find My Current Location</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br /><br />
+
+    <div class="container">
+        <div class="row">
+            <div id="map" style="width:100%;height:300px"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-6">
+            @using (Html.BeginForm("MyCoordinate", "LocationFinder"))
+            {
+                <input type="hidden" id="latitudeID" name="latitudeName"/>
+                <input type="hidden" id="longitudeID" name="longitudeName" />
+
+                <button type="submit" id="submitID" name="submitBtn" style="visibility:hidden; width:35%">See The Restaurants</button>
+            }
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+
+            var lati = position.coords.latitude;
+            var longi = position.coords.longitude;
+
+            var myCenter = new google.maps.LatLng(lati, longi);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = { center: myCenter, zoom: 15 };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "My Position"
+            });
+            infowindow.open(map, marker);
+
+            document.getElementById("latitudeID").value = lati;
+            document.getElementById("longitudeID").value = longi;
+            document.getElementById("submitID").style.visibility = "visible";
+        }
+    </script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4z75bflZCxkg8X8hG6aXyI-8rx5HK6KA&callback=myMap"></script>
+
+    <script src="~/Scripts/jquery.js"></script>
+    <!--<script src="~/Scripts/bootstrap.min.js"></script>-->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+
+    <script src="~/Scripts/jquery.sticky.js"></script>
+    <script src="~/Scripts/jquery.backstretch.min.js"></script>
+
+    <script src="~/Scripts/isotope.js"></script>
+    <script src="~/Scripts/imagesloaded.min.js"></script>
+    <script src="~/Scripts/nivo-lightbox.min.js"></script>
+
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+
+    <script src="~/Scripts/jquery.parallax.js"></script>
+    <script src="~/Scripts/smoothscroll.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/myScript.js"></script>
+
+</body>
+</html>
+
+

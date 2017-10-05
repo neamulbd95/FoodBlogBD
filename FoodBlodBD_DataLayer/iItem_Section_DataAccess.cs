@@ -14,5 +14,6 @@ namespace FoodBlodBD_DataLayer
         void Insert(Item_Section Item_Section);
         void Update(Item_Section Item_Section);
         void Delete(int id);
+        IEnumerable<Item_Section> searchSection(string keyword);
     }
 }

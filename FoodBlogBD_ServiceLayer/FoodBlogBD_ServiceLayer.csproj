@@ -52,6 +52,7 @@
     <Compile Include="iItem_Section_Service.cs" />
     <Compile Include="irestaurantItems_Service.cs" />
     <Compile Include="irestaurant_Branch_Service.cs" />
+    <Compile Include="iRestaurant_Coordinate_Service.cs" />
     <Compile Include="iRestaurant_FoodCategory_Service.cs" />
     <Compile Include="iRestaurant_info_Service.cs" />
     <Compile Include="iRestaurant_Post_Service.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="restaurantItem_Service.cs" />
     <Compile Include="restaurant_Branch_Service.cs" />
+    <Compile Include="Restaurant_Coordinate_Service.cs" />
     <Compile Include="Restaurant_FoodCategory_Service.cs" />
     <Compile Include="Restaurant_info_Service.cs" />
     <Compile Include="Restaurant_Post_Service.cs" />

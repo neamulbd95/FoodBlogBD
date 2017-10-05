@@ -1,13 +1,5 @@
-/*
-
-Template 2083 Steak House
-
-http://www.tooplate.com/view/2083-steak-house
-
-*/
-
 body {
-		background: #ffffff;
+	background: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
 	}
@@ -141,7 +133,6 @@ a:focus {
   width: 100%;
   height: 100%;
   z-index: 99999;
-  display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
@@ -177,11 +168,10 @@ a:focus {
 
 /* Home section */
 #home {
-  color: black;
+  color: #ffffff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -216,7 +206,7 @@ a:focus {
 }
 #home .btn:hover,
 #home .btn:focus {
-  color: #c21500;
+  color: #ffffff;
 }
 
 

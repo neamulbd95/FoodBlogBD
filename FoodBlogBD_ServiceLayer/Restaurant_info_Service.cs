@@ -46,5 +46,10 @@ namespace FoodBlogBD_ServiceLayer
         {
             this.data.Delete(id);
         }
+
+        public IEnumerable<Restaurant_info> searchRestaurants(string keyword)
+        {
+            return this.data.searchRestaurants(keyword);
+        }
     }
 }

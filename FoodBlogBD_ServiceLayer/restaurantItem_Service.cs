@@ -49,5 +49,9 @@ namespace FoodBlogBD_ServiceLayer
         {
             this.data.DeleteByRestaurant(restaurantID);
         }
+        public IEnumerable<restaurantItem> searchItem(string keyword)
+        {
+            return this.data.searchItem(keyword);
+        }
     }
 }

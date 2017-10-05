@@ -20,12 +20,5 @@ namespace FoodBlogBD_Entity
         public DateTime postDate { get; set; }
         public string postPicture { get; set; }
 
-        /*[ForeignKey("userID")]
-        public virtual User_info User_info { get; set; }
-
-        public virtual List<User_Comment> User_Comment { get; set; }
-        public virtual List<User_like> User_like { get; set; }*/
-
-        //public virtual User_Post_Approval User_Post_Approval { get; set; }
     }
 }

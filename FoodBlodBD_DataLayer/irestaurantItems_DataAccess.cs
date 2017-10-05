@@ -17,5 +17,6 @@ namespace FoodBlodBD_DataLayer
         void Update(restaurantItem restaurantItem);
         void DeleteSingle(int id);
         void DeleteByRestaurant(int restaurantID);
+        IEnumerable<restaurantItem> searchItem(string keyword);
     }
 }

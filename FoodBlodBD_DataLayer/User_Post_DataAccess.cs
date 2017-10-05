@@ -28,6 +28,10 @@ namespace FoodBlodBD_DataLayer
         {
             return this.context.User_Post.Where(x => x.postContent.Contains(search) || x.postHeadline.Contains(search));
         }
+        public User_Post GetSingle(int id)
+        {
+            return this.context.User_Post.SingleOrDefault(x=> x.Id ==id);
+        }
         public void Insert(User_Post User_Post)
         {
             this.context.User_Post.Add(User_Post);

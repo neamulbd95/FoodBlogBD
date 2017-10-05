@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="restaurantItem.cs" />
     <Compile Include="restaurant_Branch.cs" />
+    <Compile Include="Restaurant_Coordinate.cs" />
     <Compile Include="Restaurant_FoodCategory.cs" />
     <Compile Include="Restaurant_info.cs" />
     <Compile Include="Restaurant_Post.cs" />

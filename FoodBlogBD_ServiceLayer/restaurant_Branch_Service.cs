@@ -25,6 +25,11 @@ namespace FoodBlogBD_ServiceLayer
         {
             return this.data.GetByLocation(area);
         }
+        public restaurant_Branch GetSingle(int id)
+        {
+            return this.data.GetSingle(id);
+        }
+
         public void Insert(restaurant_Branch restaurant_Branch)
         {
             this.data.Insert(restaurant_Branch);

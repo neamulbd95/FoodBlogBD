@@ -17,5 +17,6 @@ namespace FoodBlogBD_ServiceLayer
         void Update(Restaurant_info Restaurant_info);
         void UpdateRating(Restaurant_info Restaurant_info);
         void Delete(int id);
+        IEnumerable<Restaurant_info> searchRestaurants(string keyword);
     }
 }

@@ -30,23 +30,6 @@
     <link href="~/Contents/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Contents/bootstrap.css" rel="stylesheet" />
 
-    <!--
-        <link rel="stylesheet" href="Contents/bootstrap.min.css">
-
-    <link rel="stylesheet" href="Contents/magnific-popup.css">
-
-    <link rel="stylesheet" href="Contents/animate.min.css">
-    <link rel="stylesheet" href="Contents/font-awesome.min.css">
-
-    <link rel="stylesheet" href="Contents/nivo-lightbox.css">
-    <link rel="stylesheet" href="Contentsss/nivo_themes/default/default.css">
-
-    <link rel="stylesheet" href="Contents/hover-min.css">
-    <link rel="stylesheet" href="Contents/flexslider.css">
-
-    <link rel="stylesheet" href="Contents/style.css">
-    -->
-
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
@@ -103,10 +86,21 @@
                             }
                         </ul>
                     </li>
-                    <li><a href="#topRestaurant" class="smoothScroll">Top Restaurants</a></li>
-                    <li><a href="#" class="smoothScroll">Popular Spots</a></li>
-                    <li><a href="#" class="smoothScroll">Blog</a></li>
-                    <li><a href="#team" class="smoothScroll">About Us</a></li>
+                    <li><a href="/Restaurant/ShowAllRestaurants/" class="smoothScroll">All Restaurants</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Popular Spots
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Restaurant/showRestaurantByArea/4">Banani</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/9">Dhanmondi</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/13">Gulshan</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/20">Khilgaon</a></li>
+                            <li><a href="/Restaurant/showRestaurantByArea/22">Mirpur</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/BlogHome/Index/" class="smoothScroll">Blog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -156,7 +150,7 @@
                             <div class="col-sm-10">
                                 <label>
                                     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; Press <strong>
-                                        <a href="/UserProfile/Create"> <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a>
+                                    <a href="/UserAuthentication/signUp/"> <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Sign Up</a>
                                     </strong> to Create an Account.
                                 </label>
                             </div>
@@ -172,28 +166,18 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
+@using (Html.BeginForm("Index", "Search_User"))
+{
                 <div class="input-group">
-                    <div class="input-group-btn search-panel">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <span id="search_concept">Filter by</span> <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#contains">Restaurents</a></li>
-                            <li><a href="#its_equal">Food</a></li>
-                            <li><a href="#greather_than">Posts</a></li>
-
-                            <li class="divider"></li>
-                            <li><a href="#all">Anything</a></li>
-                        </ul>
-                    </div>
                     <input type="hidden" name="search_param" value="all" id="search_param">
                     <input type="text" id="searchTxtIdUser" name="nameSearch" class="form-control" placeholder="Search" required />
                     <div class="input-group-btn">
-                        <button type="submit" class="btn btn-info">
+                        <button type="submit" class="btn btn-info" name="serachBtn">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </div>
                 </div>
+}
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -215,9 +199,11 @@
 
                 <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="feature-thumb">
-                        <div class="feature-icon">
-                            <span><i class="fa fa-cutlery"></i></span>
-                        </div>
+                        <a href="/LocationFinder/Index/">
+                            <div class="feature-icon">
+                                <span><i class="fa fa-location-arrow"></i></span>
+                            </div>
+                        </a>
                         <h3>Location Finder</h3>
                         <p>You can find all Restaurants addresses and locations in our website.</p>
                     </div>

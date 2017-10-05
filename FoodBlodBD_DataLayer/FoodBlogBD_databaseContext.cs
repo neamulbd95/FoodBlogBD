@@ -24,7 +24,9 @@ namespace FoodBlodBD_DataLayer
         public DbSet<Item_Section> Item_Section { get; set; }
         public DbSet<Restaurant_FoodCategory> Restaurant_FoodCategory { get; set; }
         public DbSet<Restaurant_Post> Restaurant_Post { get; set; }
+        public DbSet<Restaurant_Coordinate> Restaurant_Coordinate { get; set; }
 
         public DbSet<Area_Info> Area_Info { get; set; }
+
     }
 }

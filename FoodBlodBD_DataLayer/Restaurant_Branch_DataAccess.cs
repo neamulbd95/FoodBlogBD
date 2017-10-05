@@ -16,10 +16,6 @@ namespace FoodBlodBD_DataLayer
             this.context = context;
         }
 
-        //public IEnumerable<restaurant_Branch> GetByName(string name)
-        //{
-        //    return this
-        //}
         public IEnumerable<restaurant_Branch> GetByRestaurant(int restaurantID)
         {
             return this.context.restaurant_Branch.Where(x => x.restaurantID == restaurantID).ToList();
@@ -27,6 +23,10 @@ namespace FoodBlodBD_DataLayer
         public IEnumerable<restaurant_Branch> GetByLocation(string area)
         {
             return this.context.restaurant_Branch.Where(x => x.branchArea == area);
+        }
+        public restaurant_Branch GetSingle(int id)
+        {
+            return this.context.restaurant_Branch.SingleOrDefault(x=> x.Id == id);
         }
         public void Insert(restaurant_Branch restaurant_Branch)
         {
