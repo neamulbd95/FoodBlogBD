@@ -88,5 +88,10 @@ namespace FoodBlodBD_DataLayer
         {
             return new Restaurant_Coordinate_DataAcccess(new FoodBlogBD_databaseContext());
         }
+
+        public static iRestaurant_user_Review_DataAccess GetRestaurant_user_Review_DataAccess()
+        {
+            return new Restaurant_user_Review_DataAccess(new FoodBlogBD_databaseContext());
+        }
     }
 }

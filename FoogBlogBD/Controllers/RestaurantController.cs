@@ -21,7 +21,10 @@ namespace FoogBlogBD.Controllers
         iRestaurant_Post_Service restaurantPosts = Service_Center.GetRestaurant_Post_Service();
         irestaurant_Branch_Service restaurantBranch = Service_Center.GetRestaurant_Branch_Service();
         irestaurantItems_Service restaurantItems = Service_Center.GetRestaurantItem_Service();
+        iRestaurant_user_Review_Service review = Service_Center.GetRestaurant_user_Review_Service();
         iRestaurant_FoodCategory_Service restaurantCategory = Service_Center.GetRestaurant_FoodCategory_Service();
+
+        iUser_info_Service users = Service_Center.GetUser_info_Service();
 
         public ActionResult Index(int Id)
         {
@@ -33,14 +36,36 @@ namespace FoogBlogBD.Controllers
             ViewBag.restRating = restaurants.GetSingle(Id).avarageRating;
             ViewBag.restWebsite = restaurants.GetSingle(Id).Website;
 
+            IEnumerable<Restaurant_user_Review> reviewList = review.GetByRestaurant(Id);
+            List<RestaurantReviewFullModel> reviewFullList = new List<RestaurantReviewFullModel>();
+
+            foreach(Restaurant_user_Review re in reviewList)
+            {
+                RestaurantReviewFullModel r = new RestaurantReviewFullModel();
+                r.Id = re.Id;
+                r.Content = re.ReviewContent;
+                r.UserId = re.userID;
+                r.UserName = users.GetSingle(re.userID).fullName;
+                r.UserPic = users.GetSingle(re.userID).profilePicture;
+                r.restID = re.restID;
+                r.ReviewGivenDate = re.ReviewDate;
+
+                reviewFullList.Add(r);
+            }
+
             allRestaurantInfo restaurantInfo = new allRestaurantInfo();
 
             restaurantInfo.foodItems = restaurantItems.GetByRestaurant(Id);
             restaurantInfo.foodCategory = restaurantCategory.GetByRestaurant(Id);
             restaurantInfo.branches = restaurantBranch.GetByRestaurant(Id);
             restaurantInfo.posts = restaurantPosts.GetByRestaurant(Id);
+            restaurantInfo.reviews = reviewFullList;
 
             restaurantInfo.categoryList = categoryList.GetAllValues();
+
+            ViewBag.userID = Session["UserID"];
+            ViewBag.userName = Session["UserName"];
+            ViewBag.logged = Session["loggedOn"];
 
             return View(restaurantInfo);
         }

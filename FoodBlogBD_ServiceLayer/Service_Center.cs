@@ -89,5 +89,10 @@ namespace FoodBlogBD_ServiceLayer
         {
             return new Restaurant_Coordinate_Service(DataAccess_Center.GetRestaurant_Coordinate_DataAcccess());
         }
+
+        public static iRestaurant_user_Review_Service GetRestaurant_user_Review_Service()
+        {
+            return new Restaurant_user_Review_Service(DataAccess_Center.GetRestaurant_user_Review_DataAccess());
+        }
     }
 }

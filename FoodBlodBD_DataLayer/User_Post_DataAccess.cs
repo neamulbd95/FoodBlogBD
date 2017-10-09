@@ -18,7 +18,7 @@ namespace FoodBlodBD_DataLayer
 
         public IEnumerable<User_Post> GetGetAllValues()
         {
-            return this.context.User_Post.ToList();
+            return this.context.User_Post.OrderByDescending(x=> x.Id).ToList();
         }
         public IEnumerable<User_Post> GetByUser(int userID)
         {
@@ -27,6 +27,10 @@ namespace FoodBlodBD_DataLayer
         public IEnumerable<User_Post> GetByContent(string search)
         {
             return this.context.User_Post.Where(x => x.postContent.Contains(search) || x.postHeadline.Contains(search));
+        }
+        public IEnumerable<User_Post> GetByDateRange(DateTime from, DateTime to)
+        {
+            return this.context.User_Post.Where(x=> x.postDate >= from && x.postDate <= to);
         }
         public User_Post GetSingle(int id)
         {

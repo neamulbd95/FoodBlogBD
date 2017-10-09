@@ -18,7 +18,7 @@ namespace FoodBlodBD_DataLayer
 
         public IEnumerable<Restaurant_info> GetAllValues()
         {
-            return this.context.Restaurant_info.ToList();
+            return this.context.Restaurant_info.OrderBy(x=> x.restaurantName) ;
         }
         public Restaurant_info GetSingle(int id)
         {

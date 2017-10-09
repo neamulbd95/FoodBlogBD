@@ -47,7 +47,7 @@ namespace FoogBlogBD.Controllers
                 showItem.itemSection = section.GetSingle(i.itemSection).sectionName;
                 showItem.restaurantID = restaurantInfo.GetSingle(i.restaurantID).Id;
                 showItem.restaurantName = restaurantInfo.GetSingle(i.restaurantID).restaurantName;
-                showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
+                //showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
 
                 selectItemList.Add(showItem);
             }
@@ -102,7 +102,7 @@ namespace FoogBlogBD.Controllers
                     showItem.itemPicture = i.itemPicture;
                     showItem.restaurantID = restaurantInfo.GetSingle(i.restaurantID).Id;
                     showItem.restaurantName = restaurantInfo.GetSingle(i.restaurantID).restaurantName;
-                    showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
+                    //showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
 
                     selectItemList.Add(showItem);
                 }
@@ -156,7 +156,7 @@ namespace FoogBlogBD.Controllers
                 showItem.itemSection = section.GetSingle(i.itemSection).sectionName;
                 showItem.restaurantID = restaurantInfo.GetSingle(i.restaurantID).Id;
                 showItem.restaurantName = restaurantInfo.GetSingle(i.restaurantID).restaurantName;
-                showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
+                //showItem.restaurantRating = restaurantInfo.GetSingle(i.itemCategory).avarageRating;
 
                 selectItemList.Add(showItem);
             }

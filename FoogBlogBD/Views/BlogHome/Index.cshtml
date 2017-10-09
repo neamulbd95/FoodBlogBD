@@ -109,11 +109,24 @@
                     </li>
                     <li><a href="/BlogHome/Index/" class="smoothScroll">Blog</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                    </li>
-                </ul>
+                @if (ViewBag.logged == true)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/User/Index/"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+        <li>
+            <a href="/UserAuthentication/LogOut/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+        </li>
+
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+    </ul>
+}
             </div>
 
             <div id="id01" class="modal">
@@ -173,7 +186,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                @using (Html.BeginForm("Index", "Search_User"))
+                @using (Html.BeginForm("search", "BlogSearch"))
                 {
                     <div class="input-group">
                         <input type="hidden" name="search_param" value="all" id="search_param">
@@ -189,21 +202,88 @@
             <div class="col-md-1"></div>
         </div>
     </div>
-    <br /> <br />
+    <br /> 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-md-offset-3">
+                    @using (Html.BeginForm("newPost", "UserBlogPost", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        
+                        if(ViewBag.logged == true)
+                        {
+                            <div class="form-group">
+                            <table class="table table-striped" style="width:60%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" align="center">
+                                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true">Write A New Post</i>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Post Headline</b></td>
+                                        <td>
+                                            <input name="headLineName" type="text" class="input-group" required/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Post Content</b></td>
+                                        <td>
+                                            <textarea class="form-control" rows="5" name="bodyName" required></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    <tr>
+                                        <td><strong>Picture</strong></td>
+                                        <td>
+                                            <input type="file" class="form-control-file" id="exampleInputFile" name="picture" aria-describedby="fileHelp" accept=".png, .jpg, .jpeg" required />
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" colspan="2">
+                                            <input type="submit" class="btn btn-success" name="postBtn" value="Post" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        }                        
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <br />
+
     <div class="container" id="posts">
         <div class="row">
             <div class="col-md-8">
                 @foreach (var item in Model)
                 {
-                    <div class="col-md-10">
-                        <img src="@item.postPicture" class="img-responsive" width="600" height="800" /><br />
-                        <h3><b style="color:#1f5cdb">@Html.DisplayFor(modelItem => item.postHeadline)</b></h3>
-                        <label>Posted On @Html.DisplayFor(modelItem => item.postDate) by 
-                                            <a href="/UserInfo/UserDetails/@item.postGivenUserID">@Html.DisplayFor(modelItem => item.postGivenUserName)</a></label><br>
-                        <a href="/BlogHome/PostDetails/@item.postID"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="col-md-10">
+                                    <img src="@item.postPicture" class="img-responsive" width="600" height="800" /><br />
+                                    <h3><b style="color:#1f5cdb">@Html.DisplayFor(modelItem => item.postHeadline)</b></h3>
+                                    <label>
+                                        Posted On @Html.DisplayFor(modelItem => item.postDate) by
+                                        <a href="/UserInfo/UserDetails/@item.postGivenUserID">@Html.DisplayFor(modelItem => item.postGivenUserName)</a>
+                                    </label><br>
+                                    <a href="/BlogHome/PostDetails/@item.postID"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a>
+                                </div>
+                                <br />
+                                <hr />
+                            </div>
+                        </div>
                     </div>
-                    <br />
-                    <hr />
                 }
             </div>
 
@@ -230,7 +310,7 @@
                             </tr>
                             <tr>
                                 <td align="right" colspan="2">
-                                    <input type="submit" class="btn btn-default" name="priceRangeFilterBtn" value="Fliter" />
+                                    <input type="submit" class="btn btn-default" name="dateRange" value="Fliter" />
                                 </td>
                             </tr>
                         </tbody>

@@ -12,6 +12,7 @@ namespace FoodBlogBD_ServiceLayer
         IEnumerable<User_Post> GetGetAllValues();
         IEnumerable<User_Post> GetByUser(int userID);
         IEnumerable<User_Post> GetByContent(string search);
+        IEnumerable<User_Post> GetByDateRange(DateTime from, DateTime to);
         User_Post GetSingle(int id);
         void Insert(User_Post User_Post);
         void Update(User_Post User_Post);

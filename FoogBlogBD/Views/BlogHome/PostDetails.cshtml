@@ -39,6 +39,39 @@
             font-family: 'Alice';
             font-size: 22px;
         }
+        .thumbnail {
+            padding: 0px;
+        }
+
+        .panel {
+            position: relative;
+        }
+
+            .panel > .panel-heading:after, .panel > .panel-heading:before {
+                position: absolute;
+                top: 11px;
+                left: -16px;
+                right: 100%;
+                width: 0;
+                height: 0;
+                display: block;
+                content: " ";
+                border-color: transparent;
+                border-style: solid solid outset;
+                pointer-events: none;
+            }
+
+            .panel > .panel-heading:after {
+                border-width: 7px;
+                border-right-color: #f7f7f7;
+                margin-top: 1px;
+                margin-left: 2px;
+            }
+
+            .panel > .panel-heading:before {
+                border-right-color: #ddd;
+                border-width: 8px;
+            }
     </style>
 
 </head>
@@ -88,11 +121,24 @@
                     </li>
                     <li><a href="/BlogHome/Index/" class="smoothScroll">Blog</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                    </li>
-                </ul>
+                @if (ViewBag.logged == true)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/User/Index/"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+        <li>
+            <a href="/UserAuthentication/LogOut/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+        </li>
+
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+    </ul>
+}
             </div>
 
             <div id="id01" class="modal">
@@ -152,7 +198,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                @using (Html.BeginForm("Index", "Search_User"))
+                @using (Html.BeginForm("search", "BlogSearch"))
                 {
                     <div class="input-group">
                         <input type="hidden" name="search_param" value="all" id="search_param">
@@ -180,61 +226,70 @@
                     <img class="img-rounded" src="@Url.Content(ViewBag.postPic)" width="700" height="400"/> <hr />
                     <P> @ViewBag.postCont</P>
                     <hr />
-                    <div class="container">
-                        <div class="row">
-                            @using (Html.BeginForm("", ""))
-                            {
-                                <div class="form-group">
-                                    <table class="table table-striped" style="width:60%">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2" align="center">
-                                                    <i class="fa fa-comment-o fa-2x" aria-hidden="true">Leave a Comment:</i>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <textarea class="form-control" rows="5" required></textarea>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="right" colspan="2">
-                                                    <input type="submit" class="btn btn-default" name="commentName" value="Submit" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            }             
-                        </div>  
-                    </div>
+                    @if (ViewBag.logged == true)
+                    {
+                        <div class="container">
+                            <div class="row">
+                                @using (Html.BeginForm("newComment", "UserBlogPost"))
+                                {
+                                    <div class="form-group">
+                                        <table class="table table-striped" style="width:60%">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2" align="center">
+                                                        <i class="fa fa-comment-o fa-2x" aria-hidden="true">Leave a Comment:</i>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="postId" value="@ViewBag.postId" />
+                                                        <input type="hidden" name="userId" value="@ViewBag.userID"/>
+                                                        <textarea class="form-control" name="commentContent" rows="8" required></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right" colspan="2">
+                                                        <input type="submit" class="btn btn-default" name="commentName" value="Submit" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                }             
+                            </div>  
+                        </div>
+                    }                    
                     <div class="col-md-9">
                         @foreach(var item in Model)
                         {
-                            <div>
-                                <table class="table table-striped" style="width:75%">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <img class="img-circle" src="@item.userProPic" width="50" height="50"/>
-                                            </th>
-                                            <th align="center">
-                                                <a href="/UserInfo/UserDetails/@item.userId" style="font-size:larger;"><b>@Html.DisplayFor(modelItem => item.userName)</b></a> on @Html.DisplayFor(modelItem => item.commentDate)
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <div class="thumbnail">
+                                            <img class="img-responsive user-photo" src="@Url.Content(item.userProPic)">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <strong><a href="/User/OtherUsersProfile/@item.userId">@Html.DisplayFor(modelItem => item.userName)</a>
+                                                </strong> <span class="text-muted">commented on @Html.DisplayFor(modelItem => item.commentDate)</span>
+                                            </div>
+                                            <div class="panel-body">
                                                 <p>@Html.DisplayFor(modelItem => item.CommentContent)</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>                         
                         }
                     </div>
                 </div>
@@ -252,7 +307,7 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4 text-right">
-                    <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a>
+                    <a href="#top" class="fa fa-angle-up smoothScroll gototop"></a>
                 </div>
 
             </div>

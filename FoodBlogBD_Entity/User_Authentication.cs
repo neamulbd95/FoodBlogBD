@@ -12,11 +12,8 @@ namespace FoodBlogBD_Entity
     {
         [Key]
         public int Id { get; set; }       
-        //public int userID { get; set; }
+
         public string userName { get; set; }
         public string passWord { get; set; }
-
-        /*[ForeignKey("userID")]        
-        public virtual User_info User_info { get; set; }*/
     }
 }

@@ -30,6 +30,42 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
+    <style>
+        .thumbnail {
+            padding: 0px;
+        }
+
+        .panel {
+            position: relative;
+        }
+
+            .panel > .panel-heading:after, .panel > .panel-heading:before {
+                position: absolute;
+                top: 11px;
+                left: -16px;
+                right: 100%;
+                width: 0;
+                height: 0;
+                display: block;
+                content: " ";
+                border-color: transparent;
+                border-style: solid solid outset;
+                pointer-events: none;
+            }
+
+            .panel > .panel-heading:after {
+                border-width: 7px;
+                border-right-color: #f7f7f7;
+                margin-top: 1px;
+                margin-left: 2px;
+            }
+
+            .panel > .panel-heading:before {
+                border-right-color: #ddd;
+                border-width: 8px;
+            }
+    </style>
+
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -74,11 +110,24 @@
                     </li>
                     <li><a href="/BlogHome/Index/" class="smoothScroll">Blog</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                    </li>
-                </ul>
+                @if (ViewBag.logged == true)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/User/Index/"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+        <li>
+            <a href="/UserAuthentication/LogOut/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+        </li>
+
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#" onclick="document.getElementById('id01').style.display = 'block'"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+    </ul>
+}
             </div>
 
             <div id="id01" class="modal">
@@ -206,28 +255,36 @@
             <div class="col-sm-8">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-8">
+                    
                     @using (Html.BeginForm("updateRating", "Restaurant"))
                     {
-                    <div class="col-sm-3">
-                        <input type="hidden" name="restaurant" value="@ViewBag.restID"/>
-                        <div class="form-group">
-                            <select class="form-control" id="rateID" name="rateRest">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
+                        if(ViewBag.logged != null)
+                        {
+                            <div class="col-sm-3">
+                                <input type="hidden" name="restaurant" value="@ViewBag.restID"/>
+                                <div class="form-group">
+                                    <select class="form-control" id="rateID" name="rateRest">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        <div class="col-sm-2">
+                            <input type="submit" class="btn btn-primary" name="rate" value="Rate This Restaurant">
                         </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="submit" class="btn btn-primary" name="rate" value="Rate This Restaurant">
-                    </div>
+                        }
+                        else{
+                            <div class="col-md-12"><b><label style="color:#c61818">Login to Rate The Resturants</label></b></div>
+                        }
+                    
                     }
                 </div>
                 <div class="col-sm-4"></div>
@@ -240,6 +297,7 @@
             <li class="active"><a data-toggle="tab" href="#foodItem">Food Items</a></li>
             <li><a data-toggle="tab" href="#post">Posts</a></li>
             <li><a data-toggle="tab" href="#branch">Branch</a></li>
+            <li><a data-toggle="tab" href="#review">Reviews</a></li>
         </ul>
 
         <div class="tab-content">
@@ -255,6 +313,7 @@
                             <tr>
                                 <th>Food Item Name </th>
                                 <th>Item Picture</th>
+                                <th>Other Info</th>
                                 <th>Price</th>
                             </tr>
                         </thead>
@@ -264,6 +323,7 @@
                                 <tr>
                                     <td align="left">@Html.DisplayFor(modelItem => foodItem.itemName)</td>
                                     <td><img src="@Url.Content(foodItem.itemPicture)" class="img-responsive" alt="Food Menu" width="150" height="150"></td>
+                                    <td><P>@Html.DisplayFor(modelItem => foodItem.otherInfo)</P></td>
                                     <td>@Html.DisplayFor(modelItem => foodItem.itemPrice)</td>
                                 </tr>
                             }
@@ -307,6 +367,87 @@
                         }
                     </div>
                 </div>               
+            </div>
+            <div id="review" class="tab-pane fade">
+                <div class="container" id="posts">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="page-header">
+                                @if (ViewBag.logged == true)
+                                {
+                                    <div class="container">
+                                        <div class="row">
+                                            @using (Html.BeginForm("newReview", "Restaurant"))
+                                            {
+                                                <div class="form-group">
+                                                    <table class="table table-striped" style="width:45%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2" align="center">
+                                                                    <i class="fa fa-comment-o fa-2x" aria-hidden="true">Leave a Review:</i>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="hidden" name="postId" value="@ViewBag.restID" />
+                                                                    <input type="hidden" name="userId" value="@ViewBag.userID" />
+                                                                    <textarea class="form-control" name="reviewContent" rows="4" required></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" colspan="2">
+                                                                    <input type="submit" class="btn btn-default" name="btnName" value="Submit" />
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <!--<div class="newcont">-->
+
+                    <h3>@ViewBag.restName 's Review</h3>
+                    <br />                    
+                    @foreach(var item in Model.reviews)
+                    {
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <div class="thumbnail">
+                                        <img class="img-responsive user-photo" src="@Url.Content(item.UserPic)">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-5">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <strong><a href="/User/OtherUsersProfile/@item.UserId">@Html.DisplayFor(modelItem => item.UserName)</a></strong> <span class="text-muted">reviewed on @Html.DisplayFor(modelItem => item.ReviewGivenDate)</span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    
+                    }
+                </div>
             </div>
         </div>
     </div>

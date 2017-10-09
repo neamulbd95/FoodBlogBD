@@ -58,6 +58,7 @@
     <Compile Include="iRestaurant_FoodCategory_DataAccess.cs" />
     <Compile Include="iRestaurant_info_DataAccess.cs" />
     <Compile Include="iRestaurant_Post_DataAccess.cs" />
+    <Compile Include="iRestaurant_user_Review_DataAccess.cs" />
     <Compile Include="Item_Category_DataAccess.cs" />
     <Compile Include="Item_Section_DataAccess.cs" />
     <Compile Include="iUser_Authentication_DataAccess.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Restaurant_FoodCategory_DataAccess.cs" />
     <Compile Include="Restaurant_info_DataAccess.cs" />
     <Compile Include="Restaurant_Post_DataAccess.cs" />
+    <Compile Include="Restaurant_user_Review_DataAccess.cs" />
     <Compile Include="User_Authentication_DataAccess.cs" />
     <Compile Include="User_Comment_DataAccess.cs" />
     <Compile Include="User_info_DataAccess.cs" />

@@ -13,14 +13,9 @@ namespace FoodBlogBD_Entity
         [Key]
         public int Id { get; set; }
         public int postID { get; set; }
-        [Required]
         public string commentContent { get; set; }
         public DateTime commentDate { get; set; }
         public int userID { get; set; }
 
-        [ForeignKey("postID")]
-        public virtual User_Post User_Post { get; set; }
-        [ForeignKey("userID")]
-        public virtual User_info User_info { get; set; }
     }
 }

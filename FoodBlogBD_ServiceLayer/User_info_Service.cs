@@ -25,6 +25,11 @@ namespace FoodBlogBD_ServiceLayer
         {
             return this.data.GetSingle(id);
         }
+
+        public User_info GetByUserName(string userName)
+        {
+            return this.data.GetByUserName(userName);
+        }
         public void Insert(User_info user_info)
         {
             this.data.Insert(user_info);

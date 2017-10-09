@@ -1,0 +1,189 @@
+﻿@model IEnumerable<FoodBlogBD_Entity.restaurant_Branch>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FoodBlogBD Admin</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/myDesign.js"></script>
+    <script src="~/Scripts/AutoSearch.js"></script>
+
+    <link href="~/Contents/font-awesome.css" rel="stylesheet" />
+    <link href="~/Contents/bootstrap.css" rel="stylesheet" />
+    <link href="~/Contents/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchtxt").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/AdminSearch/LiveSearch",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.productName, value: item.productName };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        })
+    </script>
+
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Admin/Index"><span class="glyphicon glyphicon-home fa-2x"></span></a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                    <li>
+                        <a href="/UserAuthentication/LogOut/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <br />
+        @using (Html.BeginForm("Index", "AdminSearch"))
+        {
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" id="searchtxt" name="nameSearch" class="form-control" placeholder="Search" required />
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+        <br />
+
+        <div class="headline-big-title-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="headline-bit-title text-center">
+                            <h2><img src="@Url.Content(ViewBag.pic)" class="img-circle" alt="Cinque Terre" width="100" height="100" />@ViewBag.name 's Branch</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+    </div>
+
+    <br />
+    <div class="container">
+        <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for Product Name...." title="Type in a name">
+    </div>
+
+    <br />
+
+    <table class="table table-hover table-responsive" id="myTable">
+        <thead>
+            <tr>
+                <th align="center">Branch Name</th>
+                <th align="center">Area</th>
+                <th align="center">Address</th>
+                <th align="center">Google Map</th>
+                <th align="center">Hours</th>
+                <th align="center">Phone Number</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.branchName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.branchArea)</td>
+                    <td><p>@Html.DisplayFor(modelItem => item.branchAddress)</p></td>
+                    <td><a href="@item.branchMap">View In Map</a></td>
+                    <td>@Html.DisplayFor(modelItem => item.branchOpenHour) - @Html.DisplayFor(modelItem => item.branchCloseHour)</td>
+                    <td>@Html.DisplayFor(modelItem => item.branchPhoneNumber)</td>
+
+                    <td>
+                        <a href="/AdminBranch/showFoodItems/@item.Id">
+                            <i class="fa fa-cutlery fa-fw"></i>Items
+                        </a>
+                        &nbsp;
+                        <a href="/AdminBranch/Edit/@item.Id">
+                            <i class="fa fa-pencil fa-fw"></i>Edit
+                        </a>
+                        &nbsp;
+                        <a href="/AdminBranch/Delete/@item.Id" style="color:red">
+                            <i class="fa fa-trash-o fa-lg"></i>Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <td colspan="1">
+                    <a href="/Admin/Index/">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back to Home
+                    </a>
+                </td>
+                <td colspan="6"></td>
+                <td colspan="1">
+                    @using (Html.BeginForm("Index", "AdminBranch"))
+                    {
+                        <input type="hidden" name="resturantId" value="@ViewBag.id" />
+                        <button type="submit" class="btn btn-primary active" style="width:100%"><i class="fa fa-plus"></i>&nbsp; Add New</button>
+                    }
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -11,6 +11,7 @@ namespace FoodBlodBD_DataLayer
     {
         IEnumerable<User_info> GetAllValues();
         User_info GetSingle(int id);
+        User_info GetByUserName(string userName);
         void Insert(User_info user_info);
         void Update(User_info user_info);
         void Delete(int id);

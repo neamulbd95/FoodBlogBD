@@ -11,9 +11,7 @@ namespace FoodBlogBD_Entity
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public string RestpostHeadline { get; set; }
-        [Required]
         public string RestpostContent { get; set; }
         public int restuarantID { get; set; }
         public DateTime postDate { get; set; }

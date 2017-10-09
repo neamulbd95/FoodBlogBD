@@ -56,6 +56,7 @@
     <Compile Include="iRestaurant_FoodCategory_Service.cs" />
     <Compile Include="iRestaurant_info_Service.cs" />
     <Compile Include="iRestaurant_Post_Service.cs" />
+    <Compile Include="iRestaurant_user_Review_Service.cs" />
     <Compile Include="Item_Category_Service.cs" />
     <Compile Include="Item_Section_Service.cs" />
     <Compile Include="iUser_Authentication_Service.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Restaurant_FoodCategory_Service.cs" />
     <Compile Include="Restaurant_info_Service.cs" />
     <Compile Include="Restaurant_Post_Service.cs" />
+    <Compile Include="Restaurant_user_Review_Service.cs" />
     <Compile Include="Service_Center.cs" />
     <Compile Include="User_Authentication_Service.cs" />
     <Compile Include="User_Comment_Service.cs" />

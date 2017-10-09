@@ -56,6 +56,7 @@
     <Compile Include="Restaurant_FoodCategory.cs" />
     <Compile Include="Restaurant_info.cs" />
     <Compile Include="Restaurant_Post.cs" />
+    <Compile Include="Restaurant_user_Review.cs" />
     <Compile Include="User_Authentication.cs" />
     <Compile Include="User_Comment.cs" />
     <Compile Include="User_info.cs" />

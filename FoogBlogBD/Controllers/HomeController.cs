@@ -23,6 +23,9 @@ namespace FoogBlogBD.Controllers
             hpModel.Category = category.GetAllValues();
             hpModel.info = restInfo.GetAllValues();
 
+            ViewBag.userName = Session["UserName"];
+            ViewBag.logged = Session["loggedOn"];
+
             return View(hpModel);
         }
 

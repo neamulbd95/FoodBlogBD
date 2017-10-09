@@ -12,9 +12,7 @@ namespace FoodBlogBD_Entity
     {
         [Key]   
         public int Id { get; set; }
-        [Required]
         public string postHeadline { get; set; }
-        [Required]
         public string postContent { get; set; }
         public int  userID { get; set; }
         public DateTime postDate { get; set; }

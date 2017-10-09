@@ -29,6 +29,11 @@ namespace FoodBlogBD_ServiceLayer
         {
             return this.data.GetByContent(search);
         }
+        public IEnumerable<User_Post> GetByDateRange(DateTime from, DateTime to)
+        {
+            return this.data.GetByDateRange(from, to);
+        }
+
         public User_Post GetSingle(int id)
         {
             return this.data.GetSingle(id);

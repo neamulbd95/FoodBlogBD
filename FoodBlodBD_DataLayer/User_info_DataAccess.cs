@@ -26,6 +26,10 @@ namespace FoodBlodBD_DataLayer
             return this.context.User_info.SingleOrDefault(x => x.Id == id);
         }
 
+        public User_info GetByUserName(string userName)
+        {
+            return this.context.User_info.SingleOrDefault(x => x.userName == userName);
+        }
         public void Insert(User_info user_info)
         {
             this.context.User_info.Add(user_info);

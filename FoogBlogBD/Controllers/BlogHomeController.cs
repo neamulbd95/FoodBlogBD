@@ -36,7 +36,10 @@ namespace FoogBlogBD.Controllers
                 blog.postGivenUserName = users.GetSingle(up.userID).fullName;
 
                 AllBlogList.Add(blog);
+
             }
+            ViewBag.userName = Session["UserName"];
+            ViewBag.logged = Session["loggedOn"];
 
             return View(AllBlogList);
         }
@@ -70,11 +73,43 @@ namespace FoogBlogBD.Controllers
 
                 fullCommentDetailList.Add(fullCommentDetail);
             }
+            ViewBag.userID = Session["UserID"];
+            ViewBag.userName = Session["UserName"];
+            ViewBag.logged = Session["loggedOn"];
+
             return View(fullCommentDetailList);
         }
 
         public ActionResult RangeByDate()
         {
+            if (Request.Form["dateRange"] != null)
+            {
+                DateTime from = Convert.ToDateTime(Request.Form["fromDate"]);
+                DateTime to = Convert.ToDateTime(Request.Form["toDate"]);
+
+                IEnumerable<User_Post> postList = posts.GetByDateRange(from, to);
+                List<BlogListModel> AllBlogList = new List<BlogListModel>();
+
+                foreach (User_Post up in postList)
+                {
+                    BlogListModel blog = new BlogListModel();
+
+                    blog.postID = up.Id;
+                    blog.postHeadline = up.postHeadline;
+                    blog.postContent = up.postContent;
+                    blog.postPicture = Url.Content(up.postPicture);
+                    blog.postDate = up.postDate;
+                    blog.postGivenUserID = up.userID;
+                    blog.postGivenUserName = users.GetSingle(up.userID).fullName;
+
+                    AllBlogList.Add(blog);
+
+                }
+                ViewBag.userName = Session["UserName"];
+                ViewBag.logged = Session["loggedOn"];
+
+                return View(AllBlogList);
+            }
             return View();
         }
     }

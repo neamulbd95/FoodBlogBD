@@ -124,7 +124,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminBranchController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminRestaurantController.cs" />
     <Compile Include="Controllers\BlogHomeController.cs" />
+    <Compile Include="Controllers\BlogSearchController.cs" />
     <Compile Include="Controllers\foodCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationFinderController.cs" />
@@ -132,6 +136,7 @@
     <Compile Include="Controllers\Search_UserController.cs" />
     <Compile Include="Controllers\testController.cs" />
     <Compile Include="Controllers\UserAuthenticationController.cs" />
+    <Compile Include="Controllers\UserBlogPostController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +145,7 @@
     <Compile Include="Models\BlogListModel.cs" />
     <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="Models\LocationFinderRestaurants.cs" />
+    <Compile Include="Models\RestaurantReviewFullModel.cs" />
     <Compile Include="Models\RestaurantsFoodCategory.cs" />
     <Compile Include="Models\searchItemModel.cs" />
     <Compile Include="Models\ShowFoodItem.cs" />
@@ -304,6 +310,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\UserAuthentication\signUp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UserAuthentication\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BlogSearch\search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BlogHome\RangeByDate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminRestaurant\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminRestaurant\showBranches.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminRestaurant\addRestRequest.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminBranch\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdminBranch\showFoodItems.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

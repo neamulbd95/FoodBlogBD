@@ -1,0 +1,161 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FoodBlogBD Admin</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/myDesign.js"></script>
+    <script src="~/Scripts/AutoSearch.js"></script>
+
+    <link href="~/Contents/font-awesome.css" rel="stylesheet" />
+    <link href="~/Contents/bootstrap.css" rel="stylesheet" />
+    <link href="~/Contents/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchtxt").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/AdminSearch/LiveSearch",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.productName, value: item.productName };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        })
+    </script>
+
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Admin/Index"><span class="glyphicon glyphicon-home fa-2x"></span></a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                    <li>
+                        <a href="/UserAuthentication/LogOut/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <br />
+        @using (Html.BeginForm("Index", "AdminSearch"))
+        {
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" id="searchtxt" name="nameSearch" class="form-control" placeholder="Search" required />
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+        <br />
+
+        <div class="headline-big-title-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="headline-bit-title text-center">
+                            <h2>Welcome Admin</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i></i>&nbsp;<strong>Restaurant Options</strong>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td align="center"><a href="/AdminRestaurant/Index/"><i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>&nbsp; <strong>View Restaurants</strong></a></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><a href="/AdminRestaurant/addRestRequest/"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>&nbsp; <strong>Add Restaurants</strong></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; <strong>Blogs</strong>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td align="center"><a href=""><i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>&nbsp; <strong>View Blogs</strong></a></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp; <strong>User</strong>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td align="center"><a href=""><i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>&nbsp; <strong>View Users</strong></a></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
